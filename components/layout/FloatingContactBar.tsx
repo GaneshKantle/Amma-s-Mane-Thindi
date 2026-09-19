@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils/cn";
 import { storyEase } from "@/lib/motion/storybook";
 
 const actionBase =
-  "tap-target inline-flex flex-1 items-center justify-center gap-1 rounded-[1rem_0.75rem_1.05rem_0.85rem] px-1.5 text-[0.7rem] font-semibold text-cream transition-[transform,background-color,filter] duration-200 active:scale-[0.98] sm:gap-2 sm:px-3 sm:text-sm";
+  "tap-target inline-flex flex-1 items-center justify-center gap-0.5 rounded-[1rem_0.75rem_1.05rem_0.85rem] px-1 text-[0.65rem] font-semibold text-cream transition-[transform,background-color,filter] duration-200 active:scale-[0.98] min-[380px]:gap-1 min-[380px]:px-1.5 min-[380px]:text-[0.7rem] sm:gap-2 sm:px-3 sm:text-sm";
 
 /**
  * Mobile-only Call / WhatsApp / Location bar.
@@ -29,9 +29,9 @@ export function FloatingContactBar() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden">
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 pb-[max(0.5rem,env(safe-area-inset-bottom))] md:hidden">
       <motion.div
-        className="pointer-events-auto mx-auto flex w-[min(100%-1.5rem,26rem)] items-center gap-1 rounded-[1.25rem_1rem_1.35rem_1.1rem] border border-ink/12 bg-paper/95 p-1.5 shadow-[0_-4px_24px_rgba(41,37,31,0.12)] backdrop-blur-md sm:gap-1.5"
+        className="pointer-events-auto mx-auto flex w-[min(100%-1rem,26rem)] items-center gap-1 rounded-[1.25rem_1rem_1.35rem_1.1rem] border border-ink/12 bg-paper/95 p-1.5 shadow-[0_-4px_24px_rgba(41,37,31,0.12)] backdrop-blur-md min-[380px]:w-[min(100%-1.5rem,26rem)] sm:gap-1.5"
         initial={false}
         animate={
           visible

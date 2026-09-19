@@ -36,25 +36,28 @@ export function Hero() {
       </motion.div>
 
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16 2xl:gap-20">
           <motion.div
-            className="order-1 flex min-w-0 flex-col items-start text-left"
+            className="order-1 flex min-w-0 flex-col items-center text-center sm:items-start sm:text-left"
             variants={reduceMotion ? undefined : heroStagger}
             initial={reduceMotion ? undefined : "hidden"}
             animate={reduceMotion ? undefined : "visible"}
           >
             <motion.p
-              className="mb-4 inline-flex items-center gap-2 rounded-full border border-ink/10 bg-cream/80 px-3 py-1.5 text-xs font-medium tracking-wide text-ink-soft sm:text-sm"
+              className="mb-4 inline-flex max-w-full items-center gap-2 rounded-full border border-ink/10 bg-cream/80 px-3 py-1.5 text-[0.7rem] font-medium tracking-wide text-ink-soft sm:text-sm"
               variants={reduceMotion ? undefined : heroItem}
             >
               <span
                 aria-hidden
-                className="inline-block h-1.5 w-1.5 rounded-full bg-terracotta"
+                className="inline-block h-1.5 w-1.5 shrink-0 rounded-full bg-terracotta"
               />
-              Homemade · Handcrafted · Karnataka
+              <span className="truncate">Homemade · Handcrafted · Karnataka</span>
             </motion.p>
 
-            <motion.div variants={reduceMotion ? undefined : heroItem}>
+            <motion.div
+              className="flex w-full justify-center sm:justify-start"
+              variants={reduceMotion ? undefined : heroItem}
+            >
               <BrandLogo size="xl" priority />
               <h1 id="hero-heading" className="sr-only">
                 {SITE.name}
@@ -62,33 +65,36 @@ export function Hero() {
             </motion.div>
 
             <motion.p
-              className="mt-4 max-w-md text-xs font-medium tracking-[0.16em] text-leaf uppercase sm:text-sm"
+              className="mt-4 max-w-md text-[0.7rem] font-medium tracking-[0.16em] text-leaf uppercase sm:text-sm"
               variants={reduceMotion ? undefined : heroItem}
             >
               From Amma&apos;s home to yours
             </motion.p>
 
-            <motion.div variants={reduceMotion ? undefined : heroItem}>
+            <motion.div
+              className="flex w-full justify-center sm:justify-start"
+              variants={reduceMotion ? undefined : heroItem}
+            >
               <Divider className="mx-0 my-5 max-w-[10rem] py-0" tone="leaf" />
             </motion.div>
 
             <motion.p
               lang="kn"
-              className="font-kannada text-lg leading-relaxed text-ink sm:text-xl"
+              className="font-kannada text-subtitle text-ink"
               variants={reduceMotion ? undefined : heroItem}
             >
               {SITE.taglineKn}
             </motion.p>
 
             <motion.p
-              className="mt-2 max-w-md text-sm leading-relaxed text-ink-soft sm:text-base"
+              className="text-lead prose-measure mt-2 text-ink-soft"
               variants={reduceMotion ? undefined : heroItem}
             >
               {SITE.taglineEn}
             </motion.p>
 
             <motion.div
-              className="mt-8 flex w-full flex-col gap-3 sm:max-w-md sm:flex-row sm:flex-wrap"
+              className="mt-8 flex w-full max-w-md flex-col gap-3 sm:flex-row sm:flex-wrap"
               variants={reduceMotion ? undefined : heroItem}
             >
               <Button href="/food" variant="primary" size="lg" className="w-full sm:w-auto sm:flex-1">
@@ -107,7 +113,7 @@ export function Hero() {
           </motion.div>
 
           <motion.div
-            className="order-2 mx-auto w-full min-w-0 max-w-[28rem] lg:max-w-none"
+            className="order-2 mx-auto w-full min-w-0 max-w-[min(100%,28rem)] lg:max-w-[min(100%,36rem)] xl:max-w-none"
             initial={
               reduceMotion
                 ? false

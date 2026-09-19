@@ -49,7 +49,7 @@ export function BulkOrders() {
             </p>
             <h2
               id="bulk-heading"
-              className="font-display mt-2 text-[clamp(1.9rem,5vw,3.15rem)] leading-[1.12] tracking-tight text-ink"
+              className="font-display text-display mt-2 leading-[1.12] tracking-tight text-ink"
             >
               Planning a function?
             </h2>

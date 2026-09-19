@@ -30,7 +30,7 @@ export function ImagePlaceholder({
   src,
   alt,
   objectFit = "cover",
-  sizes = "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 40vw",
+  sizes = "(max-width: 640px) 100vw, (max-width: 1280px) 50vw, (max-width: 1920px) 33vw, 28rem",
 }: ImagePlaceholderProps) {
   return (
     <figure

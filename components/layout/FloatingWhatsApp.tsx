@@ -52,10 +52,10 @@ export function FloatingWhatsApp({ className }: { className?: string }) {
   }, [reduceMotion]);
 
   const bottom = isDesktop
-    ? "1.5rem"
+    ? "max(1.5rem, env(safe-area-inset-bottom, 0px))"
     : barVisible
       ? "calc(var(--fab-clearance) + 0.35rem + env(safe-area-inset-bottom, 0px))"
-      : "max(1.25rem, env(safe-area-inset-bottom))";
+      : "max(1.25rem, env(safe-area-inset-bottom, 0px))";
 
   return (
     <motion.a
@@ -64,7 +64,7 @@ export function FloatingWhatsApp({ className }: { className?: string }) {
       rel="noopener noreferrer"
       aria-label="Talk to us on WhatsApp"
       className={cn(
-        "group fixed right-4 z-[45] flex items-center gap-2 rounded-[1.15rem_0.85rem_1.25rem_0.95rem] border border-ink/12 bg-cream px-3 py-2.5 shadow-[2px_4px_0_rgba(41,37,31,0.1)] transition-[transform,box-shadow,bottom] duration-200 sm:right-6",
+        "group chrome-inset-right fixed z-[45] flex items-center gap-2 rounded-[1.15rem_0.85rem_1.25rem_0.95rem] border border-ink/12 bg-cream px-2.5 py-2 shadow-[2px_4px_0_rgba(41,37,31,0.1)] transition-[transform,box-shadow,bottom] duration-200 sm:px-3 sm:py-2.5",
         "hover:shadow-[3px_5px_0_rgba(41,37,31,0.12)] motion-safe:hover:scale-[1.03]",
         "focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-terracotta",
         className,

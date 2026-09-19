@@ -5,6 +5,8 @@ type SectionProps = {
   className?: string;
   id?: string;
   ariaLabelledBy?: string;
+  /** Tighter vertical rhythm for denser pages */
+  tight?: boolean;
 };
 
 export function Section({
@@ -12,13 +14,15 @@ export function Section({
   className,
   id,
   ariaLabelledBy,
+  tight = false,
 }: SectionProps) {
   return (
     <section
       id={id}
       aria-labelledby={ariaLabelledBy}
       className={cn(
-        "relative w-full py-12 sm:py-16 lg:py-20",
+        "relative w-full min-w-0",
+        tight ? "section-y-tight" : "section-y",
         className,
       )}
     >

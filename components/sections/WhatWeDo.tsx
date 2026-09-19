@@ -87,17 +87,17 @@ export function WhatWeDo() {
             </p>
             <h2
               id="what-we-do-heading"
-              className="font-display mt-2 text-[clamp(1.75rem,5vw,2.75rem)] tracking-tight text-ink"
+              className="font-display text-title mt-2 tracking-tight text-ink"
             >
               What we do
             </h2>
-            <p lang="kn" className="font-kannada mt-3 text-base text-ink-soft sm:text-lg">
+            <p lang="kn" className="font-kannada text-subtitle mt-3 text-ink-soft">
               ನೀವು ಕರೆ ಮಾಡಿ — ನಾವು ತಯಾರಿಸಿ ಕಳುಹಿಸುತ್ತೇವೆ.
             </p>
           </div>
         </Reveal>
 
-        <ol className="relative mt-12 grid gap-10 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
+        <ol className="relative mt-10 grid gap-8 sm:mt-12 sm:gap-10 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4 lg:gap-6 xl:gap-8">
           {/* Desktop hand-drawn path */}
           <svg
             aria-hidden

@@ -4,17 +4,21 @@ type ContainerProps = {
   children: React.ReactNode;
   className?: string;
   as?: "div" | "section" | "article" | "main" | "header" | "footer" | "nav";
+  /** Narrower reading measure for long text blocks */
+  narrow?: boolean;
 };
 
 export function Container({
   children,
   className,
   as: Tag = "div",
+  narrow = false,
 }: ContainerProps) {
   return (
     <Tag
       className={cn(
-        "mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 xl:max-w-7xl",
+        "page-shell",
+        narrow && "max-w-[min(var(--page-max),48rem)]",
         className,
       )}
     >

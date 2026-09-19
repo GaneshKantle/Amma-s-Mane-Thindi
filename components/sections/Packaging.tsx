@@ -122,18 +122,18 @@ export function Packaging() {
           <div className="mx-auto max-w-2xl text-center">
             <h2
               id="packaging-heading"
-              className="font-display text-[clamp(1.85rem,5vw,2.85rem)] tracking-tight text-ink"
+              className="font-display text-title tracking-tight text-ink"
             >
               Packed with a little love
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-ink-soft sm:text-base">
+            <p className="text-lead prose-measure mx-auto mt-3 text-ink-soft">
               Orders are prepared, packed and labelled carefully — so what leaves our
               kitchen arrives ready to share.
             </p>
           </div>
         </Reveal>
 
-        <ol className="mt-12 grid grid-cols-1 gap-8 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
+        <ol className="mt-10 grid grid-cols-1 gap-8 min-[480px]:grid-cols-2 sm:mt-14 lg:grid-cols-4 lg:gap-5 xl:gap-8">
           {PACKAGING_STEPS.map((step, index) => (
             <PackagingStepVisual key={step.id} step={step} index={index} />
           ))}

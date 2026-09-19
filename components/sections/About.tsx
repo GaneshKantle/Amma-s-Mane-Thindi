@@ -13,9 +13,9 @@ export function About() {
       className="bg-paper-deep/30"
     >
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+        <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
           <Reveal>
-            <div className="mx-auto w-full max-w-md rotate-[-1.25deg] lg:mx-0 lg:max-w-none">
+            <div className="mx-auto w-full max-w-[min(100%,24rem)] rotate-[-1.25deg] sm:max-w-md lg:mx-0 lg:max-w-lg">
               <ImagePlaceholder
                 label="Our packaged homemade foods"
                 aspect="wide"
@@ -25,15 +25,15 @@ export function About() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.08}>
+          <Reveal delay={0.08} className="min-w-0">
             <h2
               id="about-heading"
-              className="font-display text-[clamp(1.85rem,5vw,2.85rem)] leading-[1.15] tracking-tight text-ink"
+              className="font-display text-title leading-[1.15] tracking-tight text-ink"
             >
               Made at home. Shared with everyone.
             </h2>
             <Divider className="mx-0 my-5 max-w-[9rem] py-0" tone="leaf" />
-            <div className="space-y-4 text-sm leading-relaxed text-ink-soft sm:text-base">
+            <div className="text-lead prose-measure space-y-4 text-ink-soft">
               <p>
                 {SITE.name} is a home-based vegetarian kitchen in {SITE.area} —
                 known for traditional, fresh Karnataka-style homemade food made with

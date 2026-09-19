@@ -5,18 +5,28 @@ import { cn } from "@/lib/utils/cn";
 
 type BrandLogoProps = {
   className?: string;
-  /** Visual size of the circular mark */
   size?: "sm" | "md" | "lg" | "xl";
-  /** Show wordmark next to the mark (header / footer) */
   withWordmark?: boolean;
   priority?: boolean;
 };
 
 const sizeMap = {
-  sm: { box: "h-9 w-9 sm:h-10 sm:w-10", px: 40 },
-  md: { box: "h-11 w-11 sm:h-12 sm:w-12", px: 48 },
-  lg: { box: "h-28 w-28 sm:h-36 sm:w-36", px: 144 },
-  xl: { box: "h-36 w-36 sm:h-44 sm:w-44 md:h-52 md:w-52", px: 208 },
+  sm: {
+    box: "h-8 w-8 min-[380px]:h-9 min-[380px]:w-9 sm:h-10 sm:w-10",
+    px: 40,
+  },
+  md: {
+    box: "h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14",
+    px: 56,
+  },
+  lg: {
+    box: "h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32",
+    px: 128,
+  },
+  xl: {
+    box: "h-[clamp(6.5rem,28vw,13rem)] w-[clamp(6.5rem,28vw,13rem)]",
+    px: 208,
+  },
 } as const;
 
 export function BrandLogo({
@@ -28,7 +38,7 @@ export function BrandLogo({
   const dims = sizeMap[size];
 
   return (
-    <span className={cn("inline-flex min-w-0 items-center gap-2.5 sm:gap-3", className)}>
+    <span className={cn("inline-flex min-w-0 items-center gap-2 sm:gap-3", className)}>
       <span
         className={cn(
           "relative shrink-0 overflow-hidden rounded-full border border-ink/10 bg-cream shadow-[1px_2px_0_rgba(41,37,31,0.06)]",
@@ -46,13 +56,13 @@ export function BrandLogo({
         />
       </span>
       {withWordmark ? (
-        <span className="min-w-0 text-left">
-          <span className="font-display block truncate text-[0.95rem] font-semibold tracking-tight text-ink sm:text-lg">
+        <span className="min-w-0 text-left max-[360px]:hidden">
+          <span className="font-display block truncate text-[0.85rem] font-semibold tracking-tight text-ink sm:text-lg">
             {SITE.name}
           </span>
           <span
             lang="kn"
-            className="font-kannada block truncate text-[0.7rem] leading-tight text-ink-soft sm:text-xs"
+            className="font-kannada block truncate text-[0.65rem] leading-tight text-ink-soft sm:text-xs"
           >
             {SITE.nameKn}
           </span>

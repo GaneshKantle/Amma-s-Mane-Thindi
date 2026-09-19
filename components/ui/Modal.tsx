@@ -46,7 +46,7 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
     <AnimatePresence>
       {open ? (
         <motion.div
-          className="fixed inset-0 z-[60] flex items-end justify-center sm:items-center sm:p-6"
+          className="fixed inset-0 z-[60] flex items-end justify-center p-0 sm:items-center sm:p-6"
           initial={reduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={reduceMotion ? undefined : { opacity: 0 }}
@@ -64,7 +64,7 @@ export function Modal({ open, onClose, title, children, className }: ModalProps)
             aria-modal="true"
             aria-labelledby={titleId}
             className={cn(
-              "relative z-10 flex max-h-[min(92vh,40rem)] w-full max-w-lg flex-col overflow-hidden rounded-t-[1.5rem_1.2rem_0_0] border border-ink/10 bg-paper shadow-[0_-8px_32px_rgba(41,37,31,0.18)] sm:max-h-[min(90vh,42rem)] sm:rounded-[1.4rem_1.1rem_1.5rem_1.2rem]",
+              "relative z-10 flex max-h-[min(92dvh,40rem)] w-full max-w-lg flex-col overflow-hidden rounded-t-[1.5rem_1.2rem_0_0] border border-ink/10 bg-paper shadow-[0_-8px_32px_rgba(41,37,31,0.18)] sm:max-h-[min(90dvh,42rem)] sm:rounded-[1.4rem_1.1rem_1.5rem_1.2rem] sm:mx-4",
               className,
             )}
             initial={reduceMotion ? false : { y: 36, opacity: 0.96 }}

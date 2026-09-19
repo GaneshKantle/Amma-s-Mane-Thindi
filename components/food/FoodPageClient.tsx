@@ -20,26 +20,26 @@ export function FoodPageClient() {
   return (
     <>
       {/* Menu hero */}
-      <section className="overflow-x-clip pb-10 pt-8 sm:overflow-visible sm:pb-14 sm:pt-12 lg:pt-14">
+      <section className="section-y-tight overflow-x-clip sm:overflow-visible">
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-[1fr_1fr] lg:gap-14">
+          <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-12 xl:gap-16">
             <Reveal>
               <p className="text-xs font-medium tracking-[0.18em] text-leaf uppercase">
                 From Amma&apos;s kitchen
               </p>
-              <h1 className="font-display mt-2 text-[clamp(2rem,6vw,3.5rem)] tracking-tight text-ink">
+              <h1 className="font-display text-display mt-2 tracking-tight text-ink">
                 Our food, our way
               </h1>
-              <p lang="kn" className="font-kannada mt-2 text-lg text-terracotta sm:text-xl">
+              <p lang="kn" className="font-kannada text-subtitle mt-2 text-terracotta">
                 ಮನೆಯ ಅಡುಗೆ — ಅಮ್ಮನ ಕೈ
               </p>
               <Divider className="mx-0 my-4 max-w-[9rem] py-0" tone="leaf" />
-              <p className="max-w-xl text-sm leading-relaxed text-ink-soft sm:text-base">
+              <p className="text-lead prose-measure text-ink-soft">
                 This is our printed menu — specialties, breakfasts, meals, sweets and
                 boxes. Look through it, then tell us what you need. We cook at home in
                 Kothanur; there is no cart and no delivery — takeout only.
               </p>
-              <p className="mt-4 max-w-xl text-sm leading-relaxed text-ink-soft sm:text-base">
+              <p className="text-lead prose-measure mt-4 text-ink-soft">
                 Please order in advance and collect from our kitchen. If you don&apos;t
                 see exactly what you want, ask — custom cooking is how Amma&apos;s kitchen
                 works.
@@ -66,7 +66,7 @@ export function FoodPageClient() {
             </Reveal>
 
             <Reveal delay={0.08}>
-              <div className="mx-auto w-full max-w-md rotate-[1deg] lg:mx-0 lg:max-w-none">
+              <div className="mx-auto w-full max-w-[min(100%,22rem)] rotate-[1deg] sm:max-w-md lg:mx-0 lg:max-w-lg xl:max-w-xl">
                 <ImagePlaceholder
                   label="Our printed menu"
                   aspect="portrait"
@@ -85,17 +85,17 @@ export function FoodPageClient() {
       {/* Menu chapters — text, no fake dish photos */}
       <section
         aria-labelledby="menu-chapters-heading"
-        className="border-t border-ink/10 bg-paper-deep/30 py-14 sm:py-16"
+        className="section-y border-t border-ink/10 bg-paper-deep/30"
       >
         <Container>
           <Reveal>
             <h2
               id="menu-chapters-heading"
-              className="font-display text-[clamp(1.65rem,4vw,2.5rem)] tracking-tight text-ink"
+              className="font-display text-title tracking-tight text-ink"
             >
               On the menu
             </h2>
-            <p className="mt-3 max-w-lg text-sm leading-relaxed text-ink-soft sm:text-base">
+            <p className="text-lead prose-measure mt-3 text-ink-soft">
               Chapters from our card — open the photo above for full details, or ask us
               what is available today.
             </p>
@@ -130,7 +130,7 @@ export function FoodPageClient() {
       {/* Beyond menu — custom / mother's hand */}
       <section
         aria-labelledby="beyond-menu-heading"
-        className="py-14 sm:py-16 lg:py-20"
+        className="section-y"
       >
         <Container>
           <Reveal>
@@ -139,14 +139,14 @@ export function FoodPageClient() {
             </p>
             <h2
               id="beyond-menu-heading"
-              className="font-display mt-2 text-[clamp(1.75rem,4.5vw,2.75rem)] tracking-tight text-ink"
+              className="font-display text-title mt-2 tracking-tight text-ink"
             >
               We cook more than the card
             </h2>
-            <p lang="kn" className="font-kannada mt-3 text-base text-ink-soft sm:text-lg">
+            <p lang="kn" className="font-kannada text-subtitle mt-3 text-ink-soft">
               ಮೆನು ಮಾತ್ರವಲ್ಲ — ಅಮ್ಮನ ಕೈಯ ಆಡುಗೆ.
             </p>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft sm:text-base">
+            <p className="text-lead prose-measure mt-4 text-ink-soft">
               Mothers never cook from a fixed list alone. Share your occasion, quantity
               and preferences — we&apos;ll discuss and prepare food that feels personal.
             </p>
@@ -183,17 +183,17 @@ export function FoodPageClient() {
       {/* Real packaging photos — authentic, not fake dish shots */}
       <section
         aria-labelledby="packed-heading"
-        className="border-t border-ink/10 bg-cream/55 py-14 sm:py-16"
+        className="section-y border-t border-ink/10 bg-cream/55"
       >
         <Container>
           <Reveal>
             <h2
               id="packed-heading"
-              className="font-display text-[clamp(1.65rem,4vw,2.5rem)] tracking-tight text-ink"
+              className="font-display text-title tracking-tight text-ink"
             >
               Packed with Amma&apos;s mark
             </h2>
-            <p className="mt-3 max-w-lg text-sm leading-relaxed text-ink-soft sm:text-base">
+            <p className="text-lead prose-measure mt-3 text-ink-soft">
               Real parcels from our kitchen — snacks, powders and pickles, labelled the
               way they leave home.
             </p>
@@ -244,18 +244,18 @@ export function FoodPageClient() {
       {/* CTA */}
       <section
         aria-labelledby="food-order-cta"
-        className="border-t border-ink/10 bg-paper-deep/35 py-12 md:py-14"
+        className="section-y-tight border-t border-ink/10 bg-paper-deep/35"
       >
         <Container>
           <Reveal>
             <div className="mx-auto max-w-xl text-center">
               <h2
                 id="food-order-cta"
-                className="font-display text-[clamp(1.5rem,4vw,2.25rem)] tracking-tight text-ink"
+                className="font-display text-title tracking-tight text-ink"
               >
                 Tell us what you&apos;re craving
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft sm:text-base">
+              <p className="text-lead mx-auto mt-3 max-w-lg text-ink-soft">
                 Menu item or something custom — call or WhatsApp, order in advance, then
                 collect from our kitchen in Kothanur. Takeout only; no delivery.
               </p>

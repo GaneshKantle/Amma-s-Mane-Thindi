@@ -18,11 +18,11 @@ export function Contact() {
           <div className="mx-auto max-w-2xl text-center">
             <h2
               id="contact-heading"
-              className="font-display text-[clamp(1.85rem,5vw,2.85rem)] tracking-tight text-ink"
+              className="font-display text-title tracking-tight text-ink"
             >
               Talk to us
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-ink-soft sm:text-base">
+            <p className="text-lead prose-measure mx-auto mt-3 text-ink-soft">
               Call or WhatsApp to place an order. We&apos;ll help with everyday food,
               bulk orders, or tailoring — then you collect from our kitchen.
             </p>
@@ -78,7 +78,7 @@ export function Contact() {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <dl className="mx-auto mt-12 grid max-w-3xl gap-6 rounded-[1.4rem_1.1rem_1.5rem_1.2rem] border border-ink/10 bg-cream/70 p-6 sm:mt-14 sm:grid-cols-2 sm:gap-8 sm:p-8">
+          <dl className="mx-auto mt-12 grid max-w-3xl gap-5 rounded-[1.4rem_1.1rem_1.5rem_1.2rem] border border-ink/10 bg-cream/70 p-4 min-[380px]:p-6 sm:mt-14 sm:grid-cols-2 sm:gap-8 sm:p-8">
             <div>
               <dt className="text-xs font-medium tracking-[0.14em] text-leaf uppercase">
                 Phone / WhatsApp

@@ -20,9 +20,9 @@ export function FoodShowcase() {
   return (
     <Section id="food" ariaLabelledBy="food-heading">
       <Container>
-        <div className="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 xl:gap-16">
+        <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12 xl:gap-16 2xl:gap-20">
           <Reveal>
-            <div className="mx-auto w-full max-w-md rotate-[-1.25deg] lg:mx-0 lg:max-w-none">
+            <div className="mx-auto w-full max-w-[min(100%,22rem)] rotate-[-1.25deg] sm:max-w-md lg:mx-0 lg:max-w-lg xl:max-w-xl">
               <ImagePlaceholder
                 label="Our menu"
                 aspect="portrait"
@@ -41,22 +41,22 @@ export function FoodShowcase() {
             </div>
           </Reveal>
 
-          <div>
+          <div className="min-w-0">
             <Reveal>
               <p className="text-xs font-medium tracking-[0.18em] text-leaf uppercase">
                 Homemade kitchen
               </p>
               <h2
                 id="food-heading"
-                className="font-display mt-2 text-[clamp(1.85rem,5vw,3rem)] tracking-tight text-ink"
+                className="font-display text-title mt-2 tracking-tight text-ink"
               >
                 Made with Amma&apos;s hand
               </h2>
-              <p lang="kn" className="font-kannada mt-3 text-lg text-terracotta sm:text-xl">
+              <p lang="kn" className="font-kannada text-subtitle mt-3 text-terracotta">
                 ಅಮ್ಮನ ಕೈಯಿಂದ — ಮನೆಯ ರುಚಿ
               </p>
               <Divider className="mx-0 my-4 max-w-[9rem] py-0" tone="mustard" />
-              <p className="max-w-lg text-sm leading-relaxed text-ink-soft sm:text-base">
+              <p className="text-lead prose-measure text-ink-soft">
                 The menu shows what we cook often. Beyond that card, we also prepare
                 food the way a mother would — for your people, your occasion, and your
                 taste.

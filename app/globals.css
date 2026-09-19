@@ -15,9 +15,54 @@
     0 8px 20px color-mix(in srgb, var(--color-ink) 6%, transparent);
   --radius-hand: 1.1rem 0.85rem 1.25rem 0.95rem;
   --tap-min: 2.75rem; /* 44px */
-  /* Mobile floating contact bar clearance */
   --fab-clearance: 6.5rem;
   --wa-fab-size: 3.5rem;
+
+  /* Fluid page system — phone → TV wall */
+  --page-gutter: clamp(1rem, 0.55rem + 2.8vw, 3.25rem);
+  --page-max: 72rem;
+  --section-y: clamp(2.75rem, 1.85rem + 3.8vw, 7rem);
+  --section-y-tight: clamp(2rem, 1.4rem + 2.5vw, 4.5rem);
+  --display: clamp(1.7rem, 1.05rem + 3.1vw, 3.85rem);
+  --title: clamp(1.45rem, 1.05rem + 1.85vw, 2.95rem);
+  --subtitle: clamp(1.15rem, 1rem + 0.75vw, 1.65rem);
+  --lead: clamp(0.95rem, 0.88rem + 0.35vw, 1.2rem);
+  --prose-max: 42rem;
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Large desktops / 2K */
+@media (min-width: 1536px) {
+  :root {
+    --page-max: 80rem;
+  }
+}
+
+/* Full HD / large monitors */
+@media (min-width: 1920px) {
+  :root {
+    --page-max: 88rem;
+    --page-gutter: clamp(2rem, 1rem + 2vw, 4rem);
+  }
+}
+
+/* Ultrawide / 4K desktop */
+@media (min-width: 2560px) {
+  :root {
+    --page-max: 96rem;
+    font-size: 106.25%;
+  }
+}
+
+/* Very large / TV / 100" wall displays — keep content centered & readable */
+@media (min-width: 3840px) {
+  :root {
+    --page-max: 110rem;
+    font-size: 118.75%;
+    --section-y: clamp(4rem, 2rem + 2vw, 8rem);
+  }
 }
 
 @theme inline {
@@ -33,11 +78,14 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   --font-kannada: var(--font-kannada);
+  --breakpoint-3xl: 112rem;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -59,6 +107,8 @@
     color: var(--color-ink);
     font-family: var(--font-sans), system-ui, sans-serif;
     text-rendering: optimizeLegibility;
+    overflow-x: clip;
+    min-width: 0;
   }
 
   ::selection {
@@ -71,6 +121,14 @@
     outline-offset: 3px;
   }
 
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
   h1,
   h2,
   h3 {
@@ -78,6 +136,11 @@
     font-weight: 600;
     letter-spacing: -0.02em;
     color: var(--color-ink);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }
 
@@ -90,7 +153,48 @@
     font-family: var(--font-kannada), "Noto Serif Kannada", serif;
   }
 
-  /* Grain sits under chrome (header z-40, fab z-40, overlays z-50+) */
+  .page-shell {
+    width: 100%;
+    max-width: var(--page-max);
+    margin-inline: auto;
+    padding-inline: max(var(--page-gutter), var(--safe-left))
+      max(var(--page-gutter), var(--safe-right));
+  }
+
+  .section-y {
+    padding-block: var(--section-y);
+  }
+
+  .section-y-tight {
+    padding-block: var(--section-y-tight);
+  }
+
+  .text-display {
+    font-size: var(--display);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .text-title {
+    font-size: var(--title);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .text-subtitle {
+    font-size: var(--subtitle);
+    line-height: 1.35;
+  }
+
+  .text-lead {
+    font-size: var(--lead);
+    line-height: 1.65;
+  }
+
+  .prose-measure {
+    max-width: var(--prose-max);
+  }
+
   .paper-grain {
     position: relative;
   }
@@ -111,14 +215,13 @@
     min-width: var(--tap-min);
   }
 
-  /* Clear the mobile floating contact bar — use on footer or last CTA, not both */
   .pb-fab {
-    padding-bottom: calc(var(--fab-clearance) + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(var(--fab-clearance) + var(--safe-bottom));
   }
 
   @media (min-width: 768px) {
     .pb-fab {
-      padding-bottom: 2.5rem;
+      padding-bottom: clamp(2.5rem, 2rem + 1vw, 4rem);
     }
   }
 
@@ -131,7 +234,6 @@
     border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%;
   }
 
-  /* Hand-drawn underline for text links */
   .link-draw {
     position: relative;
     text-decoration: none;
@@ -162,5 +264,15 @@
     .link-draw::after {
       transition: none;
     }
+  }
+
+  /* Prevent fixed chrome from colliding with notches / home indicators */
+  .chrome-inset-x {
+    left: max(0.75rem, var(--safe-left));
+    right: max(0.75rem, var(--safe-right));
+  }
+
+  .chrome-inset-right {
+    right: max(1rem, var(--safe-right));
   }
 }
