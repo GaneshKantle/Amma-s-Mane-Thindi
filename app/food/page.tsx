@@ -8,10 +8,10 @@ import { SITE } from "@/lib/constants/site";
 
 export const metadata: Metadata = {
   title: "Our Food",
-  description: `Browse homemade snacks, meals, traditional items and specials from ${SITE.name}. Call or WhatsApp to order — no online cart.`,
+  description: `Homemade Karnataka food from ${SITE.name} — see our menu, ask for custom cooking, and order by call or WhatsApp. From Amma's home to yours.`,
   openGraph: {
     title: `Our Food | ${SITE.name}`,
-    description: `Homemade Karnataka food from ${SITE.name}. Browse the menu and order by call or WhatsApp.`,
+    description: `Printed menu plus custom kitchen cooking from ${SITE.name}. No online cart — talk to us directly.`,
   },
 };
 

@@ -1,18 +1,27 @@
 /**
  * Central business contact config for AMMA'S MANE TINDI.
- * Replace placeholders with real details when available.
  */
 export const BUSINESS = {
   name: "AMMA'S MANE TINDI",
   nameKn: "ಅಮ್ಮನ ಮನೆ ತಿಂಡಿ",
   /** Digits only, country code included — no + or spaces */
-  whatsappNumber: "919000000000",
-  phoneDisplay: "+91 90000 00000",
-  phoneHref: "tel:+919000000000",
-  addressDisplay: "Bengaluru, Karnataka (exact address coming soon)",
+  whatsappNumber: "918088053939",
+  phoneDisplay: "+91 80880 53939",
+  phoneHref: "tel:+918088053939",
+  addressDisplay:
+    "Balaji Layout, beside Sunrise Medical Apartment, near Jerusalem Prayer House, Kothanur, Bengaluru, Karnataka 560077",
+  areaDisplay: "Kothanur, Bengaluru",
   mapsHref:
-    "https://www.google.com/maps/search/?api=1&query=Bengaluru+Karnataka",
-  hoursDisplay: "Mon–Sat · 9:00 AM – 7:00 PM",
+    "https://www.google.com/maps/search/?api=1&query=Amma%27s+Mane+Thindi+Balaji+Layout+Kothanur+Bengaluru+560077",
+  hoursDisplay: "Mon–Sun · 8:00 AM – 8:00 PM",
+  /** Takeout only — orders in advance, collect from kitchen */
+  serviceDisplay: "Takeout only · No delivery · Order in advance",
+  serviceNote:
+    "Takeout only — we do not offer delivery. Please place your order in advance and collect it from our kitchen in Kothanur.",
+  cuisine: "Vegetarian",
+  rating: 5.0,
+  reviewCount: 7,
+  googleReviewsLabel: "7 Google reviews",
   social: {
     instagram: "https://instagram.com/",
     facebook: "https://facebook.com/",

@@ -55,8 +55,9 @@ export function BulkOrders() {
             </h2>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-soft sm:text-base">
               We take bulk orders for gatherings large and small. Tell us the occasion,
-              the quantity and the date — we&apos;ll prepare and pack everything with care.
-              Call or WhatsApp; there&apos;s no online checkout.
+              quantity and date — we&apos;ll prepare and pack with care. Call or WhatsApp
+              (no online checkout). Takeout only: order in advance and collect from our
+              kitchen in Kothanur.
             </p>
 
             {/* Mini process sequence */}

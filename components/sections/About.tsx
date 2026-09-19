@@ -35,21 +35,25 @@ export function About() {
             <Divider className="mx-0 my-5 max-w-[9rem] py-0" tone="leaf" />
             <div className="space-y-4 text-sm leading-relaxed text-ink-soft sm:text-base">
               <p>
-                {SITE.name} began in a Kannada household kitchen — where recipes are
-                remembered by hand, and food is made the way Amma makes it.
+                {SITE.name} is a home-based vegetarian kitchen in {SITE.area} —
+                known for traditional, fresh Karnataka-style homemade food made with
+                care and quality ingredients.
               </p>
               <p>
-                We cook with traditional taste and everyday care: small batches,
-                honest ingredients, and packaging that feels personal. Alongside the
-                kitchen, we also stitch blouses and finish saree work with the same
-                attention.
+                From Obbattu, Chakli and Nippattu to everyday rotti, chapati, idli and
+                vada — recipes are remembered by hand, the way Amma makes them. Alongside
+                the kitchen, we also stitch blouses and finish saree work with the same
+                patience.
               </p>
               <p>
-                This is a small business built on trust. When you call us, you are
-                speaking to the people who prepare your order.
+                We are takeout only: place your order in advance, then collect from our
+                kitchen. When you call, you speak to the people who prepare your food.
               </p>
             </div>
-            <p lang="kn" className="font-kannada mt-6 text-base text-terracotta sm:text-lg">
+            <p className="mt-5 text-sm font-medium text-ink">
+              {SITE.rating.toFixed(1)} ★ · {SITE.googleReviewsLabel} · {SITE.cuisine}
+            </p>
+            <p lang="kn" className="font-kannada mt-3 text-base text-terracotta sm:text-lg">
               ಮನೆಯಿಂದ ಮನೆಗೆ — ಪ್ರೀತಿಯಿಂದ.
             </p>
           </Reveal>

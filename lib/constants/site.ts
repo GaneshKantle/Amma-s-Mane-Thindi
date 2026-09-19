@@ -5,9 +5,10 @@ export const SITE = {
   name: BUSINESS.name,
   nameKn: BUSINESS.nameKn,
   taglineKn: "ಮನೆಯ ರುಚಿ, ನಿಮ್ಮ ಮನೆಗೆ.",
-  taglineEn: "From Amma's home to yours — homemade food, prepared with care.",
+  taglineEn:
+    "Traditional Karnataka homemade vegetarian food from Amma's kitchen in Kothanur — from Amma's home to yours.",
   description:
-    "Warm homemade Karnataka food and traditional tailoring from a Kannada household — AMMA'S MANE TINDI. From Amma's home to yours.",
+    "Amma's Mane Thindi is a home-based vegetarian kitchen in Kothanur, Bengaluru — traditional Karnataka sweets, snacks and everyday meals, plus careful tailoring. Takeout only; order in advance.",
   phoneDisplay: BUSINESS.phoneDisplay,
   phoneHref: BUSINESS.phoneHref,
   /** Prefer contextual helpers from lib/utils/whatsapp for new CTAs */
@@ -15,8 +16,15 @@ export const SITE = {
     return whatsappDefaultHref();
   },
   address: BUSINESS.addressDisplay,
+  area: BUSINESS.areaDisplay,
   hours: BUSINESS.hoursDisplay,
   mapsHref: BUSINESS.mapsHref,
+  serviceDisplay: BUSINESS.serviceDisplay,
+  serviceNote: BUSINESS.serviceNote,
+  cuisine: BUSINESS.cuisine,
+  rating: BUSINESS.rating,
+  reviewCount: BUSINESS.reviewCount,
+  googleReviewsLabel: BUSINESS.googleReviewsLabel,
   social: BUSINESS.social,
 } as const;
 

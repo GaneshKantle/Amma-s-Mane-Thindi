@@ -41,7 +41,8 @@ export function BulkOrdersPage() {
             <Divider className="mx-0 my-5 max-w-[9rem] py-0" tone="mustard" />
             <p className="max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
               Tell us what you&apos;re planning. We&apos;ll discuss the food, quantity and
-              packing with you.
+              packing with you. Order in advance — takeout only; collect from our kitchen
+              in Kothanur.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:max-w-md sm:flex-row">
               <Button
@@ -186,7 +187,8 @@ export function BulkOrdersPage() {
             <div className="mx-auto max-w-xl text-center">
               <p className="rounded-[1.2rem_0.9rem_1.35rem_1rem] border border-dashed border-ink/20 bg-paper px-5 py-4 text-sm leading-relaxed text-ink-soft sm:text-base">
                 For bulk orders, please contact us directly so we can understand your
-                requirements.
+                requirements. We are takeout only — no delivery. Place your order in
+                advance and collect from our kitchen.
               </p>
               <h2
                 id="bulk-cta-heading"

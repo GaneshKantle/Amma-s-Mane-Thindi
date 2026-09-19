@@ -1,63 +1,121 @@
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Divider } from "@/components/ui/Divider";
-import { FoodCard } from "@/components/ui/FoodCard";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
-import { getFeaturedFoodItems } from "@/lib/constants/food";
+import { Stagger, StaggerItem } from "@/components/ui/Stagger";
+import { BEYOND_MENU } from "@/lib/constants/kitchen";
+import { MEDIA } from "@/lib/constants/media";
+import { SITE } from "@/lib/constants/site";
 import { cn } from "@/lib/utils/cn";
 
-export function FoodShowcase() {
-  const items = getFeaturedFoodItems(4);
+const accentDot = {
+  leaf: "bg-leaf",
+  terracotta: "bg-terracotta",
+  mustard: "bg-mustard",
+} as const;
 
+export function FoodShowcase() {
   return (
     <Section id="food" ariaLabelledBy="food-heading">
       <Container>
-        <Reveal>
-          <div className="max-w-xl">
-            <h2
-              id="food-heading"
-              className="font-display text-[clamp(1.85rem,5vw,3rem)] tracking-tight text-ink"
-            >
-              Made in our kitchen
-            </h2>
-            <p lang="kn" className="font-kannada mt-3 text-lg text-terracotta sm:text-xl">
-              ನಮ್ಮ ಮನೆಯ ಅಡುಗೆಮನೆಯಿಂದ
-            </p>
-            <Divider className="mx-0 my-4 max-w-[9rem] py-0" tone="mustard" />
-            <p className="text-sm leading-relaxed text-ink-soft sm:text-base">
-              Everyday snacks, traditional favourites and wholesome meals — prepared
-              at home, not in a factory kitchen.
-            </p>
-          </div>
-        </Reveal>
+        <div className="grid items-start gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14 xl:gap-16">
+          <Reveal>
+            <div className="mx-auto w-full max-w-md rotate-[-1.25deg] lg:mx-0 lg:max-w-none">
+              <ImagePlaceholder
+                label="Our menu"
+                aspect="portrait"
+                alt={`${SITE.name} homemade food menu`}
+                src={MEDIA.menu}
+                objectFit="contain"
+                className="bg-cream"
+                sizes="(max-width: 1024px) 90vw, 42vw"
+              />
+              <p
+                aria-hidden
+                className="mt-3 text-center font-display text-xs tracking-wide text-leaf/70 rotate-[-2deg] sm:text-sm"
+              >
+                Our printed menu — from Amma&apos;s kitchen
+              </p>
+            </div>
+          </Reveal>
 
-        <div className="mt-12 grid grid-cols-1 gap-10 sm:mt-14 sm:grid-cols-2 sm:gap-x-8 sm:gap-y-14 lg:gap-x-12">
-          {items.map((item, index) => (
-            <Reveal
-              key={item.id}
-              delay={index * 0.06}
-              className={cn(
-                index === 1 && "sm:mt-10",
-                index === 2 && "sm:mt-0 lg:-mt-6",
-                index === 3 && "sm:mt-10",
-              )}
-            >
-              <FoodCard item={item} />
+          <div>
+            <Reveal>
+              <p className="text-xs font-medium tracking-[0.18em] text-leaf uppercase">
+                Homemade kitchen
+              </p>
+              <h2
+                id="food-heading"
+                className="font-display mt-2 text-[clamp(1.85rem,5vw,3rem)] tracking-tight text-ink"
+              >
+                Made with Amma&apos;s hand
+              </h2>
+              <p lang="kn" className="font-kannada mt-3 text-lg text-terracotta sm:text-xl">
+                ಅಮ್ಮನ ಕೈಯಿಂದ — ಮನೆಯ ರುಚಿ
+              </p>
+              <Divider className="mx-0 my-4 max-w-[9rem] py-0" tone="mustard" />
+              <p className="max-w-lg text-sm leading-relaxed text-ink-soft sm:text-base">
+                The menu shows what we cook often. Beyond that card, we also prepare
+                food the way a mother would — for your people, your occasion, and your
+                taste.
+              </p>
             </Reveal>
-          ))}
-        </div>
 
-        <Reveal delay={0.1}>
-          <div className="mt-10 text-center sm:mt-12">
-            <Link
-              href="/food"
-              className="tap-target inline-flex items-center justify-center rounded-[1rem_0.75rem_1.05rem_0.9rem] border border-ink/15 bg-cream/80 px-6 text-sm font-semibold text-ink transition-colors hover:border-terracotta/40 hover:bg-cream focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta"
-            >
-              Browse all food
-            </Link>
+            <Reveal delay={0.06}>
+              <p className="mt-8 text-xs font-medium tracking-[0.16em] text-terracotta uppercase">
+                More than the menu
+              </p>
+            </Reveal>
+
+            <Stagger className="mt-4 space-y-4" as="ul">
+              {BEYOND_MENU.map((item) => (
+                <StaggerItem key={item.id} as="li">
+                  <div className="flex gap-3 rounded-[1.15rem_0.85rem_1.25rem_0.95rem] border border-ink/8 bg-cream/50 px-4 py-3.5 sm:gap-4 sm:px-5 sm:py-4">
+                    <span
+                      aria-hidden
+                      className={cn(
+                        "mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full",
+                        accentDot[item.accent],
+                      )}
+                    />
+                    <div className="min-w-0">
+                      <h3 className="font-display text-lg font-semibold tracking-tight text-ink sm:text-xl">
+                        {item.title}
+                      </h3>
+                      {item.titleKn ? (
+                        <p lang="kn" className="font-kannada mt-0.5 text-sm text-terracotta/90">
+                          {item.titleKn}
+                        </p>
+                      ) : null}
+                      <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                </StaggerItem>
+              ))}
+            </Stagger>
+
+            <Reveal delay={0.1}>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <Link
+                  href="/food"
+                  className="tap-target inline-flex items-center justify-center rounded-[1rem_0.75rem_1.05rem_0.9rem] bg-terracotta px-6 text-sm font-semibold text-cream shadow-[2px_3px_0_rgba(41,37,31,0.12)] transition-[transform,background-color] duration-200 hover:bg-terracotta-deep motion-safe:hover:-translate-y-0.5"
+                >
+                  See the menu &amp; custom cooking
+                </Link>
+                <Link
+                  href="/#contact"
+                  className="tap-target inline-flex items-center justify-center text-sm font-medium text-ink-soft underline decoration-ink/20 underline-offset-4 hover:text-ink hover:decoration-terracotta"
+                >
+                  Ask what&apos;s cooking today
+                </Link>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
+        </div>
       </Container>
     </Section>
   );
