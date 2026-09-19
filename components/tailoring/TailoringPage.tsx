@@ -133,7 +133,7 @@ export function TailoringPage() {
               A glimpse of our work
             </h2>
             <p className="text-lead prose-measure mt-3 text-ink-soft">
-              Work photos coming soon.
+              A few pieces from the sewing table.
             </p>
           </Reveal>
 
@@ -144,7 +144,8 @@ export function TailoringPage() {
                   label={item.label}
                   aspect={orientationAspect[item.orientation]}
                   alt={item.imageAlt}
-                  objectFit="contain"
+                  src={item.imageSrc}
+                  sizes="(max-width: 640px) 90vw, 30vw"
                 />
                 <p className="mt-3 font-display text-base font-semibold text-ink">
                   {item.label}
