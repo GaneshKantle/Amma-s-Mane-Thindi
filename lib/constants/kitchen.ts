@@ -59,11 +59,6 @@ export const MENU_CHAPTERS: readonly {
     note: "Obbattu (Holige), Chakli, Nippattu, Mixture and traditional sweets.",
   },
   {
-    id: "breakfast",
-    label: "Breakfast favourites",
-    note: "Idli, Vada and warm morning combos.",
-  },
-  {
     id: "meals",
     label: "Everyday meals",
     note: "Rotti, Chapati and homemade curries.",
@@ -77,5 +72,10 @@ export const MENU_CHAPTERS: readonly {
     id: "boxes",
     label: "Snack & Karnataka boxes",
     note: "Gift-ready packs for sharing and celebrations.",
+  },
+  {
+    id: "breakfast",
+    label: "Breakfast favourites",
+    note: "Idli, Vada and warm morning combos.",
   },
 ] as const;

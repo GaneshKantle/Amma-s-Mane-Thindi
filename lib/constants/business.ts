@@ -22,10 +22,6 @@ export const BUSINESS = {
   rating: 5.0,
   reviewCount: 7,
   googleReviewsLabel: "7 Google reviews",
-  social: {
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
-  },
   siteUrl:
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ammasmanetindi.example",
 } as const;

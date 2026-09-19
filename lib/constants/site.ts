@@ -25,7 +25,6 @@ export const SITE = {
   rating: BUSINESS.rating,
   reviewCount: BUSINESS.reviewCount,
   googleReviewsLabel: BUSINESS.googleReviewsLabel,
-  social: BUSINESS.social,
 } as const;
 
 export type Site = typeof SITE;
