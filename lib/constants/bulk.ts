@@ -40,33 +40,39 @@ export const BULK_OCCASIONS: readonly BulkOccasion[] = [
 export type BulkProcessStep = {
   number: string;
   title: string;
-  description: string;
+  mark: "phone" | "pot" | "parcel" | "plate";
+  accent: "terracotta" | "mustard" | "leaf";
 };
 
 export const BULK_PROCESS_STEPS: readonly BulkProcessStep[] = [
   {
     number: "01",
     title: "Tell us about your event",
-    description: "Share the occasion, date, and roughly how many people you are expecting.",
+    mark: "phone",
+    accent: "terracotta",
   },
   {
     number: "02",
     title: "Discuss the menu",
-    description: "We talk through snacks, meals and traditional items that fit your gathering.",
+    mark: "plate",
+    accent: "mustard",
   },
   {
     number: "03",
     title: "Confirm quantity and details",
-    description: "Together we finalise portions, packing preferences and timing.",
+    mark: "parcel",
+    accent: "leaf",
   },
   {
     number: "04",
     title: "We prepare and pack",
-    description: "Food is made fresh in our kitchen, then packed and labelled carefully.",
+    mark: "pot",
+    accent: "terracotta",
   },
   {
     number: "05",
     title: "Your order is ready",
-    description: "Collect or arrange handover — ready to share at your function.",
+    mark: "parcel",
+    accent: "mustard",
   },
 ] as const;
