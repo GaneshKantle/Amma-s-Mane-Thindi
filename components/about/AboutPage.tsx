@@ -7,9 +7,6 @@ import { Section } from "@/components/ui/Section";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { MEDIA } from "@/lib/constants/media";
 import { SITE } from "@/lib/constants/site";
-import { TAILORING_GALLERY } from "@/lib/constants/tailoring";
-
-const TAILORING_HERO = TAILORING_GALLERY[0];
 
 export function AboutPage() {
   return (
@@ -105,10 +102,12 @@ export function AboutPage() {
               <div className="flex h-full flex-col items-center text-center">
                 <div className="w-full max-w-[min(100%,16rem)] sm:max-w-[18rem]">
                   <ImagePlaceholder
-                    label={TAILORING_HERO.label}
+                    label="Tailoring"
                     aspect="square"
-                    alt={TAILORING_HERO.imageAlt}
-                    src={TAILORING_HERO.imageSrc}
+                    alt="Tailoring services — blouse stitching and saree finishing"
+                    src={MEDIA.tailoringLogo}
+                    objectFit="contain"
+                    className="bg-cream"
                     sizes="(max-width: 1024px) 70vw, 18rem"
                   />
                 </div>
