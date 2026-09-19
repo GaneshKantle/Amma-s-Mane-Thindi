@@ -1,26 +1,50 @@
 import Link from "next/link";
-import { InkCorner, InkSprig } from "@/components/illustrations/InkOrnaments";
+import { InkCorner } from "@/components/illustrations/InkOrnaments";
+import {
+  FooterBackdrop,
+  InkClock,
+  InkLeafSpray,
+  InkNeedle,
+  InkParcel,
+  InkPin,
+  InkPlate,
+  InkPot,
+  InkStitch,
+} from "@/components/illustrations/FooterMotifs";
 import { BrandLogo } from "@/components/ui/BrandLogo";
 import { Container } from "@/components/ui/Container";
-import { Divider } from "@/components/ui/Divider";
 import { FOOTER_LINKS } from "@/lib/constants/nav";
 import { SITE } from "@/lib/constants/site";
 import { whatsappDefaultHref } from "@/lib/utils/whatsapp";
+
+const MOTIF_STRIP = [
+  { label: "Cook", Mark: InkPot },
+  { label: "Pack", Mark: InkParcel },
+  { label: "Serve", Mark: InkPlate },
+  { label: "Stitch", Mark: InkNeedle },
+] as const;
 
 export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="ink-wash relative overflow-hidden border-t border-ink/10 bg-paper-deep/35 pb-fab">
-      <InkCorner className="pointer-events-none absolute top-5 left-4 h-7 w-7 opacity-60 sm:top-8 sm:left-8" />
-      <InkCorner className="pointer-events-none absolute right-4 bottom-20 h-7 w-7 rotate-180 opacity-50 sm:right-8 sm:bottom-24" />
+    <footer className="ink-wash relative overflow-hidden border-t border-ink/12 bg-paper-deep/45 pb-fab">
+      <FooterBackdrop className="pointer-events-none absolute inset-0 h-full w-full opacity-90" />
 
-      <Container className="relative py-14 sm:py-16 lg:py-20">
-        {/* Brand signal */}
-        <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
-          <div className="min-w-0">
-            <BrandLogo size="md" />
-            <p className="font-display mt-4 text-[clamp(1.55rem,4.2vw,2.35rem)] leading-[1.08] font-semibold tracking-tight text-ink">
+      <InkCorner className="pointer-events-none absolute top-4 left-3 z-[1] h-8 w-8 opacity-55 sm:top-7 sm:left-7" />
+      <InkCorner className="pointer-events-none absolute top-4 right-3 z-[1] h-8 w-8 rotate-90 opacity-45 sm:top-7 sm:right-7" />
+      <InkCorner className="pointer-events-none absolute bottom-[5.5rem] left-3 z-[1] h-8 w-8 -rotate-90 opacity-40 sm:bottom-24 sm:left-7" />
+      <InkCorner className="pointer-events-none absolute right-3 bottom-[5.5rem] z-[1] h-8 w-8 rotate-180 opacity-45 sm:right-7 sm:bottom-24" />
+
+      <Container className="relative z-[1] py-14 sm:py-16 lg:py-20">
+        {/* Brand chapter */}
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+          <div className="min-w-0 max-w-xl">
+            <div className="flex items-center gap-3">
+              <BrandLogo size="md" />
+              <InkLeafSpray className="hidden h-8 w-20 opacity-80 sm:block" />
+            </div>
+            <p className="font-display mt-5 text-[clamp(1.65rem,4.4vw,2.55rem)] leading-[1.06] font-semibold tracking-tight text-ink">
               {SITE.name}
             </p>
             <p
@@ -29,39 +53,62 @@ export function Footer() {
             >
               {SITE.taglineKn}
             </p>
+            <p className="prose-measure mt-4 text-sm leading-relaxed text-ink-soft sm:text-[0.95rem]">
+              Homemade Karnataka vegetarian cooking from our kitchen in {SITE.area} —
+              prepared with care, collected with trust.
+            </p>
           </div>
 
-          <p className="shrink-0 text-xs tracking-[0.16em] text-leaf uppercase sm:pb-1 sm:text-right">
-            {SITE.cuisine}
-            <span className="mx-2 text-ink/25" aria-hidden>
-              ·
-            </span>
-            {SITE.rating.toFixed(1)} ★
-            <span className="mx-2 text-ink/25" aria-hidden>
-              ·
-            </span>
-            {SITE.googleReviewsLabel}
-          </p>
+          <div className="shrink-0 lg:pb-1 lg:text-right">
+            <p className="text-[0.68rem] font-medium tracking-[0.2em] text-leaf uppercase">
+              Home kitchen
+            </p>
+            <p className="mt-2 text-sm text-ink">
+              {SITE.cuisine}
+              <span className="mx-2 text-ink/25" aria-hidden>
+                ·
+              </span>
+              {SITE.rating.toFixed(1)} ★
+            </p>
+            <p className="mt-1 text-xs tracking-wide text-ink-soft">
+              {SITE.googleReviewsLabel}
+            </p>
+          </div>
         </div>
 
-        <div className="mt-8 flex items-center gap-3 sm:mt-10">
-          <Divider tone="leaf" className="mx-0 max-w-[7rem] flex-none py-0" />
-          <InkSprig className="h-5 w-10 shrink-0 opacity-70" />
-          <div
-            aria-hidden
-            className="h-px min-w-0 flex-1 bg-gradient-to-r from-ink/15 to-transparent"
-          />
+        {/* Illustrated kitchen strip */}
+        <div className="mt-10 sm:mt-12">
+          <InkStitch className="h-3 w-full opacity-90" />
+          <ul className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6">
+            {MOTIF_STRIP.map(({ label, Mark }) => (
+              <li
+                key={label}
+                className="flex flex-col items-center gap-2 text-center"
+              >
+                <span className="flex h-14 w-14 items-center justify-center rounded-[1.05rem_0.75rem_1.15rem_0.85rem] border border-ink/12 bg-cream/55 shadow-[inset_0_1px_0_rgba(247,240,223,0.7)]">
+                  <Mark className="h-9 w-9" />
+                </span>
+                <span className="text-[0.65rem] font-medium tracking-[0.18em] text-ink-soft uppercase">
+                  {label}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <InkStitch className="mt-6 h-3 w-full opacity-90" />
         </div>
 
         {/* Contact — only place for number & hours */}
-        <div className="mt-10 grid gap-10 sm:mt-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start lg:gap-16">
+        <div className="mt-10 grid gap-10 sm:mt-12 lg:grid-cols-2 lg:gap-14 xl:gap-20">
           <div>
-            <p className="text-[0.68rem] font-medium tracking-[0.22em] text-ink-soft/80 uppercase">
-              Call
-            </p>
+            <div className="flex items-center gap-2.5">
+              <InkPot className="h-7 w-7 shrink-0 opacity-80" />
+              <p className="text-[0.68rem] font-medium tracking-[0.22em] text-ink-soft/85 uppercase">
+                Reach the kitchen
+              </p>
+            </div>
             <a
               href={SITE.phoneHref}
-              className="font-display mt-2 block text-[clamp(1.45rem,3.5vw,2rem)] leading-none font-semibold tracking-tight text-ink transition-colors hover:text-terracotta"
+              className="font-display mt-3 block text-[clamp(1.5rem,3.6vw,2.1rem)] leading-none font-semibold tracking-tight text-ink transition-colors hover:text-terracotta"
             >
               {SITE.phoneDisplay}
             </a>
@@ -88,53 +135,79 @@ export function Footer() {
               </a>
             </div>
 
-            <p className="mt-6 text-sm text-ink-soft">
-              <span className="font-medium text-ink">Hours</span>
-              <span className="mx-2 text-ink/25" aria-hidden>
-                ·
-              </span>
-              {SITE.hours}
-            </p>
+            <div className="mt-7 flex items-start gap-3">
+              <InkClock className="mt-0.5 h-8 w-8 shrink-0 opacity-75" />
+              <div>
+                <p className="text-[0.68rem] font-medium tracking-[0.18em] text-ink-soft/80 uppercase">
+                  Hours
+                </p>
+                <p className="mt-1 text-sm font-medium text-ink sm:text-[0.95rem]">
+                  {SITE.hours}
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="lg:border-l lg:border-ink/10 lg:pl-12">
-            <p className="text-[0.68rem] font-medium tracking-[0.22em] text-ink-soft/80 uppercase">
-              Collect from
-            </p>
+          <div>
+            <div className="flex items-center gap-2.5">
+              <InkPin className="h-7 w-7 shrink-0 opacity-80" />
+              <p className="text-[0.68rem] font-medium tracking-[0.22em] text-ink-soft/85 uppercase">
+                Collect from
+              </p>
+            </div>
             <a
               href={SITE.mapsHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 block text-sm leading-relaxed text-ink-soft transition-colors hover:text-ink sm:text-[0.95rem]"
+              className="mt-3 block text-sm leading-relaxed text-ink-soft transition-colors hover:text-ink sm:text-[0.95rem]"
             >
               {SITE.address}
             </a>
-            <p className="mt-5 text-sm leading-relaxed text-ink-soft">
-              {SITE.serviceDisplay}
-            </p>
+
+            <div className="mt-7 flex items-start gap-3">
+              <InkParcel className="mt-0.5 h-8 w-8 shrink-0 opacity-75" />
+              <div>
+                <p className="text-[0.68rem] font-medium tracking-[0.18em] text-ink-soft/80 uppercase">
+                  Service
+                </p>
+                <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                  {SITE.serviceDisplay}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Nav + credit */}
-        <div className="mt-12 flex flex-col gap-6 border-t border-ink/10 pt-8 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
-          <nav aria-label="Footer">
-            <ul className="flex flex-wrap gap-x-5 gap-y-2">
-              {FOOTER_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="link-draw text-sm font-medium text-ink"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <p className="text-xs text-ink-soft/70">
-            © {year} {SITE.name}. Made with care at home.
+        {/* Closing line + nav */}
+        <div className="mt-12 sm:mt-14">
+          <InkLeafSpray className="mx-auto h-7 w-[7.5rem] opacity-70" />
+          <p
+            lang="kn"
+            className="font-kannada mt-4 text-center text-base text-terracotta sm:text-lg"
+          >
+            ಮನೆಯಿಂದ ಮನೆಗೆ — ಪ್ರೀತಿಯಿಂದ.
           </p>
+
+          <div className="mt-8 flex flex-col gap-6 border-t border-ink/10 pt-8 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+            <nav aria-label="Footer">
+              <ul className="flex flex-wrap gap-x-5 gap-y-2">
+                {FOOTER_LINKS.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="link-draw text-sm font-medium text-ink"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+
+            <p className="text-xs text-ink-soft/70">
+              © {year} {SITE.name}. Made with care at home.
+            </p>
+          </div>
         </div>
       </Container>
     </footer>
