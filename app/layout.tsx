@@ -42,6 +42,14 @@ export const metadata: Metadata = {
     description: SITE.description,
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: "/images/food/logo.jpeg",
+        width: 512,
+        height: 512,
+        alt: SITE.name,
+      },
+    ],
   },
 };
 
