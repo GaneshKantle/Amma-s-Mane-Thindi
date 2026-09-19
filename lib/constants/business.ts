@@ -34,13 +34,13 @@ export type Business = typeof BUSINESS;
 
 export const WHATSAPP_MESSAGES = {
   default:
-    "Hi! I found AMMA'S MANE TINDI through your website. I'd like to know more about your food and services.",
+    "Hello! I came across AMMA'S MANE TINDI online and would love to know more about your homemade food.",
   food:
-    "Hi! I found AMMA'S MANE TINDI through your website. I'd like to know more about your food items.",
+    "Hello! I'd like to ask about your menu — sweets, snacks, and everyday meals from AMMA'S MANE TINDI.",
   foodItem: (name: string) =>
-    `Hi! I found AMMA'S MANE TINDI through your website. I'm interested in ${name}. Could you please share more details?`,
+    `Hello! I'm interested in ${name} from AMMA'S MANE TINDI. Could you please share availability and details?`,
   bulk:
-    "Hi! I found AMMA'S MANE TINDI through your website. I'd like to enquire about a bulk food order.",
+    "Hello! I'm planning a gathering and would like to enquire about a bulk food order from AMMA'S MANE TINDI.",
   tailoring:
-    "Hi! I found AMMA'S MANE TINDI through your website. I'd like to enquire about your tailoring and blouse services.",
+    "Hello! I'd like to enquire about blouse work and tailoring services at AMMA'S MANE TINDI.",
 } as const;

@@ -6,9 +6,9 @@ import { Container } from "@/components/ui/Container";
 import { DrawPath } from "@/components/ui/DrawPath";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { PROCESS_STEPS } from "@/lib/constants/process";
 import { storyDuration, storyEase, viewportOnce } from "@/lib/motion/storybook";
-import { cn } from "@/lib/utils/cn";
 
 function ProcessStepCard({
   step,
@@ -51,18 +51,13 @@ function ProcessStepCard({
         </svg>
       ) : null}
 
-      <div
-        className={cn(
-          "relative z-[1] mb-4 flex h-16 w-16 items-center justify-center rounded-[1.2rem_0.9rem_1.35rem_1rem] border border-ink/10 bg-cream shadow-[2px_2px_0_rgba(41,37,31,0.06)]",
-          "transition-[box-shadow,transform] duration-300 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-[3px_4px_0_rgba(41,37,31,0.08)]",
-        )}
-      >
+      <div className="relative z-[1] mb-4 flex h-16 w-16 items-center justify-center rounded-[0.85rem_0.5rem_1rem_0.65rem] border border-ink/15 bg-cream/90 shadow-[1px_2px_0_rgba(41,37,31,0.05)] transition-[box-shadow,transform] duration-300 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-[2px_3px_0_rgba(41,37,31,0.07)]">
         <ProcessMark mark={step.mark} className="h-12 w-12" />
       </div>
-      <span className="font-display text-sm font-semibold tracking-widest text-terracotta">
+      <span className="font-display text-xs font-medium tracking-[0.2em] text-terracotta">
         {step.number}
       </span>
-      <h3 className="font-display mt-1 text-xl font-semibold text-ink sm:text-2xl">
+      <h3 className="font-display mt-1.5 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
         {step.title}
       </h3>
       <p className="mt-2 max-w-xs text-sm leading-relaxed text-ink-soft sm:text-base">
@@ -81,13 +76,13 @@ export function WhatWeDo() {
     >
       <Container>
         <Reveal>
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-medium tracking-[0.18em] text-leaf uppercase">
+          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+            <SectionEyebrow withSprig tone="leaf" className="items-center">
               How it works
-            </p>
+            </SectionEyebrow>
             <h2
               id="what-we-do-heading"
-              className="font-display text-title mt-2 tracking-tight text-ink"
+              className="font-display text-title mt-3 tracking-tight text-ink"
             >
               What we do
             </h2>

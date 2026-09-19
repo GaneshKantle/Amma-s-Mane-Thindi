@@ -3,6 +3,7 @@ import { Divider } from "@/components/ui/Divider";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SITE } from "@/lib/constants/site";
 
 export function About() {
@@ -10,12 +11,12 @@ export function About() {
     <Section
       id="about"
       ariaLabelledBy="about-heading"
-      className="bg-paper-deep/30"
+      className="ink-wash bg-paper-deep/25"
     >
       <Container>
         <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
           <Reveal>
-            <div className="mx-auto w-full max-w-[min(100%,24rem)] rotate-[-1.25deg] sm:max-w-md lg:mx-0 lg:max-w-lg">
+            <div className="mx-auto w-full max-w-[min(100%,24rem)] rotate-[-0.75deg] sm:max-w-md lg:mx-0 lg:max-w-lg">
               <ImagePlaceholder
                 label="Our packaged homemade foods"
                 aspect="wide"
@@ -26,9 +27,12 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.08} className="min-w-0">
+            <SectionEyebrow withSprig tone="leaf">
+              Our kitchen
+            </SectionEyebrow>
             <h2
               id="about-heading"
-              className="font-display text-title leading-[1.15] tracking-tight text-ink"
+              className="font-display text-title mt-3 leading-[1.15] tracking-tight text-ink"
             >
               Made at home. Shared with everyone.
             </h2>

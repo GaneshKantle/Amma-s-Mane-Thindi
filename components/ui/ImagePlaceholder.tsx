@@ -5,12 +5,12 @@ type ImagePlaceholderProps = {
   label?: string;
   aspect?: "square" | "photo" | "wide" | "portrait" | "landscape" | "detail";
   className?: string;
-  /** When a real photo exists under /public, pass its path here. */
   src?: string;
   alt?: string;
-  /** Prefer contain for gallery photos so images are not cropped aggressively. */
   objectFit?: "cover" | "contain";
   sizes?: string;
+  /** Archival corner brackets instead of washi tape */
+  archival?: boolean;
 };
 
 const aspectClasses = {
@@ -22,7 +22,7 @@ const aspectClasses = {
   detail: "aspect-[5/4]",
 } as const;
 
-/** Scrapbook-style frame — placeholder art or next/image when src is available. */
+/** Illustrated plate / archival frame for photographs. */
 export function ImagePlaceholder({
   label = "Photo coming soon",
   aspect = "photo",
@@ -31,27 +31,30 @@ export function ImagePlaceholder({
   alt,
   objectFit = "cover",
   sizes = "(max-width: 640px) 100vw, (max-width: 1280px) 50vw, (max-width: 1920px) 33vw, 28rem",
+  archival = true,
 }: ImagePlaceholderProps) {
   return (
     <figure
       className={cn(
         "relative overflow-hidden bg-paper-deep/80 hand-frame",
+        archival && "archival-frame",
         aspectClasses[aspect],
         className,
       )}
       style={{
-        borderRadius: "1.15rem 0.85rem 1.3rem 0.95rem",
+        borderRadius: "0.95rem 0.55rem 1.1rem 0.7rem",
       }}
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 z-10 border-[1.5px] border-ink/20"
+        className="pointer-events-none absolute inset-0 z-10 border border-ink/18"
         style={{ borderRadius: "inherit" }}
       />
-      <span
+      {/* Subtle double-line ink edge */}
+      <div
         aria-hidden
-        className="absolute -top-1 left-1/2 z-20 h-5 w-14 -translate-x-1/2 rotate-[-2deg] bg-mustard/55 shadow-sm sm:w-16"
-        style={{ borderRadius: "2px" }}
+        className="pointer-events-none absolute inset-[5px] z-10 border border-ink/[0.08]"
+        style={{ borderRadius: "inherit" }}
       />
 
       {src ? (
@@ -61,7 +64,9 @@ export function ImagePlaceholder({
             alt={alt ?? label}
             fill
             className={
-              objectFit === "contain" ? "object-contain p-2" : "object-cover"
+              objectFit === "contain"
+                ? "object-contain p-3 sm:p-4"
+                : "object-cover"
             }
             sizes={sizes}
             loading="lazy"
@@ -88,7 +93,7 @@ export function ImagePlaceholder({
               y="8"
               width="36"
               height="32"
-              rx="3"
+              rx="2"
               stroke="currentColor"
               strokeWidth="1.5"
             />

@@ -25,16 +25,16 @@ type ButtonProps = ButtonAsButton | ButtonAsLink;
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-terracotta text-cream shadow-[2px_3px_0_rgba(41,37,31,0.12)] hover:bg-terracotta-deep active:translate-y-px",
+    "bg-terracotta text-cream shadow-[1px_2px_0_rgba(41,37,31,0.1)] hover:bg-terracotta-deep active:translate-y-px",
   secondary:
-    "bg-cream/70 text-ink border-[1.5px] border-ink/25 shadow-[2px_2px_0_rgba(41,37,31,0.08)] hover:border-terracotta/50 hover:bg-cream active:translate-y-px [border-radius:1.1rem_0.7rem_1.15rem_0.85rem]",
+    "bg-cream/80 text-ink border border-ink/30 shadow-[1px_2px_0_rgba(41,37,31,0.06)] hover:border-terracotta/55 hover:bg-cream active:translate-y-px",
   ghost:
-    "bg-transparent text-ink hover:bg-ink/5 active:bg-ink/10",
+    "bg-transparent text-ink hover:bg-ink/[0.04] active:bg-ink/[0.07]",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  md: "min-h-11 px-5 text-sm sm:text-base",
-  lg: "min-h-12 px-6 text-base sm:min-h-[3.25rem] sm:px-7 sm:text-lg",
+  md: "min-h-11 px-5 text-sm tracking-wide sm:text-[0.95rem]",
+  lg: "min-h-12 px-6 text-[0.95rem] tracking-wide sm:min-h-[3.15rem] sm:px-7 sm:text-base",
 };
 
 function buttonClassName(
@@ -43,7 +43,7 @@ function buttonClassName(
   className?: string,
 ) {
   return cn(
-    "tap-target inline-flex items-center justify-center gap-2 rounded-[1rem_0.75rem_1.05rem_0.9rem] font-medium transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out disabled:pointer-events-none disabled:opacity-50 motion-safe:hover:-translate-y-0.5 motion-safe:hover:shadow-[3px_4px_0_rgba(41,37,31,0.12)]",
+    "tap-target inline-flex items-center justify-center gap-2 rounded-[0.7rem_0.45rem_0.85rem_0.55rem] font-medium transition-[transform,background-color,border-color,box-shadow] duration-200 ease-out disabled:pointer-events-none disabled:opacity-50 motion-safe:hover:-translate-y-px motion-safe:hover:shadow-[2px_3px_0_rgba(41,37,31,0.1)]",
     variantClasses[variant],
     sizeClasses[size],
     className,

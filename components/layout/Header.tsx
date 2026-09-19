@@ -16,11 +16,11 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur-md">
+      <header className="sticky top-0 z-50 border-b border-ink/12 bg-paper/92 backdrop-blur-md">
         <Container className="flex h-14 items-center justify-between gap-3 min-[380px]:gap-4 sm:h-16 md:h-[4.25rem]">
           <Link
             href="/"
-            className="group min-w-0 shrink rounded-md focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-terracotta"
+            className="group min-w-0 shrink rounded-sm focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-terracotta"
           >
             <BrandLogo size="sm" withWordmark priority />
           </Link>
@@ -37,10 +37,10 @@ export function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "tap-target relative inline-flex items-center rounded-full px-2.5 text-sm font-medium transition-colors xl:px-3",
+                        "tap-target relative inline-flex items-center px-2.5 text-sm tracking-wide transition-colors xl:px-3",
                         active
-                          ? "text-ink"
-                          : "text-ink-soft hover:bg-paper-deep/70 hover:text-ink",
+                          ? "font-medium text-ink"
+                          : "text-ink-soft hover:text-ink",
                       )}
                       aria-current={active ? "page" : undefined}
                     >
@@ -48,7 +48,7 @@ export function Header() {
                       {active ? (
                         <span
                           aria-hidden
-                          className="absolute bottom-1.5 left-1/2 h-[3px] w-4 -translate-x-1/2 rounded-full bg-terracotta/70"
+                          className="absolute inset-x-2.5 bottom-1.5 h-px bg-terracotta/80 xl:inset-x-3"
                         />
                       ) : null}
                     </Link>
@@ -60,7 +60,7 @@ export function Header() {
 
           <button
             type="button"
-            className="tap-target inline-flex shrink-0 items-center justify-center rounded-full border border-ink/15 bg-cream/70 text-ink transition-colors hover:bg-cream lg:hidden"
+            className="tap-target inline-flex shrink-0 items-center justify-center rounded-[0.65rem_0.4rem_0.75rem_0.5rem] border border-ink/20 bg-cream/80 text-ink transition-colors hover:bg-cream lg:hidden"
             aria-expanded={menuOpen}
             aria-controls="mobile-nav"
             aria-label="Open menu"

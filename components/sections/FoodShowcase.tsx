@@ -1,28 +1,24 @@
 import Link from "next/link";
+import { ChapterMark } from "@/components/illustrations/InkOrnaments";
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Divider } from "@/components/ui/Divider";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
 import { BEYOND_MENU } from "@/lib/constants/kitchen";
 import { MEDIA } from "@/lib/constants/media";
 import { SITE } from "@/lib/constants/site";
-import { cn } from "@/lib/utils/cn";
-
-const accentDot = {
-  leaf: "bg-leaf",
-  terracotta: "bg-terracotta",
-  mustard: "bg-mustard",
-} as const;
 
 export function FoodShowcase() {
   return (
-    <Section id="food" ariaLabelledBy="food-heading">
+    <Section id="food" ariaLabelledBy="food-heading" className="ink-wash">
       <Container>
         <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12 xl:gap-16 2xl:gap-20">
           <Reveal>
-            <div className="mx-auto w-full max-w-[min(100%,22rem)] rotate-[-1.25deg] sm:max-w-md lg:mx-0 lg:max-w-lg xl:max-w-xl">
+            <div className="mx-auto w-full max-w-[min(100%,22rem)] rotate-[-0.75deg] sm:max-w-md lg:mx-0 lg:max-w-lg xl:max-w-xl">
               <ImagePlaceholder
                 label="Our menu"
                 aspect="portrait"
@@ -32,23 +28,20 @@ export function FoodShowcase() {
                 className="bg-cream"
                 sizes="(max-width: 1024px) 90vw, 42vw"
               />
-              <p
-                aria-hidden
-                className="mt-3 text-center font-display text-xs tracking-wide text-leaf/70 rotate-[-2deg] sm:text-sm"
-              >
-                Our printed menu — from Amma&apos;s kitchen
+              <p className="mt-4 text-center font-display text-xs tracking-[0.04em] text-ink-soft/80 italic sm:text-sm">
+                The printed card from our kitchen
               </p>
             </div>
           </Reveal>
 
           <div className="min-w-0">
             <Reveal>
-              <p className="text-xs font-medium tracking-[0.18em] text-leaf uppercase">
+              <SectionEyebrow withSprig tone="leaf">
                 Homemade kitchen
-              </p>
+              </SectionEyebrow>
               <h2
                 id="food-heading"
-                className="font-display text-title mt-2 tracking-tight text-ink"
+                className="font-display text-title mt-3 tracking-tight text-ink"
               >
                 Made with Amma&apos;s hand
               </h2>
@@ -64,21 +57,18 @@ export function FoodShowcase() {
             </Reveal>
 
             <Reveal delay={0.06}>
-              <p className="mt-8 text-xs font-medium tracking-[0.16em] text-terracotta uppercase">
+              <SectionEyebrow className="mt-9" tone="terracotta">
                 More than the menu
-              </p>
+              </SectionEyebrow>
             </Reveal>
 
-            <Stagger className="mt-4 space-y-4" as="ul">
-              {BEYOND_MENU.map((item) => (
+            <Stagger className="mt-5 space-y-3" as="ul">
+              {BEYOND_MENU.map((item, index) => (
                 <StaggerItem key={item.id} as="li">
-                  <div className="flex gap-3 rounded-[1.15rem_0.85rem_1.25rem_0.95rem] border border-ink/8 bg-cream/50 px-4 py-3.5 sm:gap-4 sm:px-5 sm:py-4">
-                    <span
-                      aria-hidden
-                      className={cn(
-                        "mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full",
-                        accentDot[item.accent],
-                      )}
+                  <div className="story-card flex gap-3.5 px-4 py-4 sm:gap-4 sm:px-5 sm:py-5">
+                    <ChapterMark
+                      number={String(index + 1).padStart(2, "0")}
+                      className="mt-0.5 shrink-0"
                     />
                     <div className="min-w-0">
                       <h3 className="font-display text-lg font-semibold tracking-tight text-ink sm:text-xl">
@@ -100,15 +90,12 @@ export function FoodShowcase() {
 
             <Reveal delay={0.1}>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-                <Link
-                  href="/food"
-                  className="tap-target inline-flex items-center justify-center rounded-[1rem_0.75rem_1.05rem_0.9rem] bg-terracotta px-6 text-sm font-semibold text-cream shadow-[2px_3px_0_rgba(41,37,31,0.12)] transition-[transform,background-color] duration-200 hover:bg-terracotta-deep motion-safe:hover:-translate-y-0.5"
-                >
+                <Button href="/food" variant="primary" size="lg" className="w-full sm:w-auto">
                   See the menu &amp; custom cooking
-                </Link>
+                </Button>
                 <Link
                   href="/#contact"
-                  className="tap-target inline-flex items-center justify-center text-sm font-medium text-ink-soft underline decoration-ink/20 underline-offset-4 hover:text-ink hover:decoration-terracotta"
+                  className="link-draw tap-target inline-flex items-center justify-center text-sm font-medium text-ink-soft"
                 >
                   Ask what&apos;s cooking today
                 </Link>

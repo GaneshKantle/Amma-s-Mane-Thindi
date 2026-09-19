@@ -7,6 +7,7 @@ import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { MEDIA } from "@/lib/constants/media";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { PACKAGING_STEPS } from "@/lib/constants/packaging";
 import { storyDuration, storyEase, viewportOnce } from "@/lib/motion/storybook";
 import { cn } from "@/lib/utils/cn";
@@ -83,10 +84,8 @@ function PackagingStepVisual({
             viewport={viewportOnce}
             transition={{ delay: 0.4, duration: 0.5 }}
           >
-            <span className="absolute top-3 right-4 font-display text-mustard/70">✦</span>
-            <span className="absolute bottom-6 left-3 font-display text-sm text-terracotta/50">
-              ✦
-            </span>
+            <span className="absolute top-3 right-3 h-5 w-5 border-t border-r border-ink/25" />
+            <span className="absolute bottom-3 left-3 h-5 w-5 border-b border-l border-terracotta/35" />
           </motion.div>
         ) : null}
       </div>
@@ -94,9 +93,17 @@ function PackagingStepVisual({
       {index < PACKAGING_STEPS.length - 1 ? (
         <span
           aria-hidden
-          className="absolute top-[42%] -right-3 z-10 hidden font-display text-xl text-terracotta/45 lg:block"
+          className="absolute top-[42%] -right-4 z-10 hidden text-terracotta/40 lg:block"
         >
-          →
+          <svg width="28" height="12" viewBox="0 0 28 12" fill="none">
+            <path
+              d="M2 6 H22 M18 2.5 L23 6 L18 9.5"
+              stroke="currentColor"
+              strokeWidth="1.3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </span>
       ) : null}
 
@@ -115,14 +122,17 @@ export function Packaging() {
     <Section
       id="packaging"
       ariaLabelledBy="packaging-heading"
-      className="overflow-x-clip bg-cream/60 md:overflow-visible"
+      className="ink-wash overflow-x-clip md:overflow-visible"
     >
       <Container>
         <Reveal>
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+            <SectionEyebrow withSprig tone="mustard" className="items-center">
+              From kitchen to door
+            </SectionEyebrow>
             <h2
               id="packaging-heading"
-              className="font-display text-title tracking-tight text-ink"
+              className="font-display text-title mt-3 tracking-tight text-ink"
             >
               Packed with a little love
             </h2>

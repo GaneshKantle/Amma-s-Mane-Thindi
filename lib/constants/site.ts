@@ -6,9 +6,9 @@ export const SITE = {
   nameKn: BUSINESS.nameKn,
   taglineKn: "ಮನೆಯ ರುಚಿ, ನಿಮ್ಮ ಮನೆಗೆ.",
   taglineEn:
-    "Traditional Karnataka homemade vegetarian food from Amma's kitchen in Kothanur — from Amma's home to yours.",
+    "Traditional Karnataka vegetarian cooking from a home kitchen in Kothanur — prepared with care, collected with trust.",
   description:
-    "Amma's Mane Thindi is a home-based vegetarian kitchen in Kothanur, Bengaluru — traditional Karnataka sweets, snacks and everyday meals, plus careful tailoring. Takeout only; order in advance.",
+    "Amma's Mane Thindi is a home-based vegetarian kitchen in Kothanur, Bengaluru. Traditional Karnataka sweets, snacks and everyday meals, plus careful tailoring. Takeout only; order in advance.",
   phoneDisplay: BUSINESS.phoneDisplay,
   phoneHref: BUSINESS.phoneHref,
   /** Prefer contextual helpers from lib/utils/whatsapp for new CTAs */

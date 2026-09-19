@@ -11,9 +11,10 @@
   --color-mustard: #d9a441;
   --color-cream: #faf6eb;
   --color-border-soft: color-mix(in srgb, var(--color-ink) 14%, transparent);
-  --shadow-scrapbook: 2px 3px 0 color-mix(in srgb, var(--color-ink) 8%, transparent),
-    0 8px 20px color-mix(in srgb, var(--color-ink) 6%, transparent);
-  --radius-hand: 1.1rem 0.85rem 1.25rem 0.95rem;
+  --shadow-scrapbook: 1px 2px 0 color-mix(in srgb, var(--color-ink) 6%, transparent),
+    0 12px 28px color-mix(in srgb, var(--color-ink) 7%, transparent);
+  --radius-hand: 0.85rem 0.55rem 1rem 0.7rem;
+  --radius-ink: 0.35rem 0.85rem 0.45rem 0.95rem;
   --tap-min: 2.75rem; /* 44px */
   --fab-clearance: 6.5rem;
   --wa-fab-size: 3.5rem;
@@ -205,9 +206,75 @@
     position: fixed;
     inset: 0;
     z-index: 1;
-    opacity: 0.04;
+    opacity: 0.055;
     mix-blend-mode: multiply;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Soft ink wash behind illustrated sections */
+  .ink-wash {
+    background-image:
+      radial-gradient(
+        ellipse 80% 60% at 12% 18%,
+        color-mix(in srgb, var(--color-mustard) 14%, transparent),
+        transparent 55%
+      ),
+      radial-gradient(
+        ellipse 70% 50% at 88% 78%,
+        color-mix(in srgb, var(--color-leaf) 12%, transparent),
+        transparent 50%
+      );
+  }
+
+  .ink-plate {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .ink-plate::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: -2% -1%;
+    z-index: -1;
+    border: 1px solid color-mix(in srgb, var(--color-ink) 14%, transparent);
+    border-radius: 48% 52% 50% 50% / 46% 48% 52% 54%;
+    opacity: 0.7;
+  }
+
+  .story-card {
+    border: 1px solid color-mix(in srgb, var(--color-ink) 12%, transparent);
+    background: color-mix(in srgb, var(--color-cream) 72%, transparent);
+    border-radius: var(--radius-ink);
+    box-shadow: inset 0 1px 0 color-mix(in srgb, var(--color-cream) 80%, transparent);
+  }
+
+  .archival-frame {
+    position: relative;
+  }
+
+  .archival-frame::before,
+  .archival-frame::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    z-index: 3;
+    width: 1.15rem;
+    height: 1.15rem;
+    border-color: color-mix(in srgb, var(--color-ink) 38%, transparent);
+    border-style: solid;
+  }
+
+  .archival-frame::before {
+    top: 0.55rem;
+    left: 0.55rem;
+    border-width: 1.5px 0 0 1.5px;
+  }
+
+  .archival-frame::after {
+    right: 0.55rem;
+    bottom: 0.55rem;
+    border-width: 0 1.5px 1.5px 0;
   }
 
   .tap-target {
