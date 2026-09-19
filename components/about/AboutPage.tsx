@@ -81,7 +81,7 @@ export function AboutPage() {
                   Homemade food
                 </SectionEyebrow>
                 <h3 className="font-display mt-2 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-                  Karnataka kitchen
+                  From Amma&apos;s kitchen
                 </h3>
                 <p className="mt-3 max-w-sm text-base leading-relaxed text-ink-soft sm:text-lg">
                   Snacks, powders, pickles, and meals — made fresh at home.
