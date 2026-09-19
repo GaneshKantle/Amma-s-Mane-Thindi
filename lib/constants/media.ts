@@ -3,6 +3,7 @@
 export const MEDIA = {
   logo: "/images/food/logo.jpeg",
   menu: "/images/food/menu.jpeg",
+  banner: "/images/food/banner.jpeg",
   food: {
     packaged1: "/images/food/food1.jpeg",
     packaged2: "/images/food/food3.jpeg",
