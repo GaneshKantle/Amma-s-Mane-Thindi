@@ -9,7 +9,7 @@ export const NAV_LINKS: readonly NavLink[] = [
   { label: "Food", href: "/food" },
   { label: "Bulk Orders", href: "/bulk-orders" },
   { label: "Tailoring", href: "/tailoring" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/#contact" },
 ] as const;
 
@@ -17,5 +17,6 @@ export const FOOTER_LINKS: readonly NavLink[] = [
   { label: "Food", href: "/food" },
   { label: "Bulk Orders", href: "/bulk-orders" },
   { label: "Tailoring", href: "/tailoring" },
+  { label: "About", href: "/about" },
   { label: "Contact", href: "/#contact" },
 ] as const;

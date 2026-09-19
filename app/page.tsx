@@ -2,7 +2,6 @@ import { SiteChrome } from "@/components/layout/SiteChrome";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { PageTransition } from "@/components/layout/PageTransition";
-import { About } from "@/components/sections/About";
 import { BulkOrders } from "@/components/sections/BulkOrders";
 import { Contact } from "@/components/sections/Contact";
 import { FoodShowcase } from "@/components/sections/FoodShowcase";
@@ -23,7 +22,6 @@ export default function Home() {
           <Packaging />
           <BulkOrders />
           <Tailoring />
-          <About />
           <Contact />
         </main>
       </PageTransition>

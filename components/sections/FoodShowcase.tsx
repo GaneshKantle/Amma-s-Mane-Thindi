@@ -56,12 +56,12 @@ export function FoodShowcase() {
               </p>
             </Reveal>
 
-            <Reveal delay={0.06}>
+            {/* <Reveal delay={0.06}>
               <SectionEyebrow className="mt-9" tone="terracotta">
                 More than the menu
               </SectionEyebrow>
-            </Reveal>
-
+            </Reveal> */}
+{/* 
             <Stagger className="mt-5 space-y-3" as="ul">
               {BEYOND_MENU.map((item, index) => (
                 <StaggerItem key={item.id} as="li">
@@ -86,7 +86,7 @@ export function FoodShowcase() {
                   </div>
                 </StaggerItem>
               ))}
-            </Stagger>
+            </Stagger> */}
 
             <Reveal delay={0.1}>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">

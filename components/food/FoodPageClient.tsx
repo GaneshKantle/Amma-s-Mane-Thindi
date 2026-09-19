@@ -4,7 +4,13 @@ import { Divider } from "@/components/ui/Divider";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
 import { Stagger, StaggerItem } from "@/components/ui/Stagger";
-import { BEYOND_MENU, MENU_CHAPTERS } from "@/lib/constants/kitchen";
+import { BEYOND_MENU } from "@/lib/constants/kitchen";
+import {
+  MENU_CATEGORIES,
+  MENU_CUSTOMISE_NOTE,
+  MENU_PRICE_NOTE,
+  formatMenuPrice,
+} from "@/lib/constants/menu";
 import { MEDIA } from "@/lib/constants/media";
 import { SITE } from "@/lib/constants/site";
 import { whatsappFoodHref } from "@/lib/utils/whatsapp";
@@ -74,7 +80,7 @@ export function FoodPageClient() {
         </Container>
       </section>
 
-      {/* Menu chapters — text, no fake dish photos */}
+      {/* Priced menu catalogue */}
       <section
         aria-labelledby="menu-chapters-heading"
         className="section-y border-t border-ink/10 bg-paper-deep/30"
@@ -88,34 +94,79 @@ export function FoodPageClient() {
               On the menu
             </h2>
             <p className="text-lead prose-measure mt-3 text-ink-soft">
-              Chapters from our card — open the photo above for full details, or ask us
-              what is available today.
+              From Amma&apos;s home to yours — ask us what is available today.
             </p>
           </Reveal>
 
-          <Stagger
-            className="mt-10 grid gap-4 sm:mt-12 sm:grid-cols-2 lg:grid-cols-3"
-            as="ul"
-          >
-            {MENU_CHAPTERS.map((chapter, index) => (
-              <StaggerItem key={chapter.id} as="li">
-                <div
-                  className={cn(
-                    "flex h-full flex-col gap-2 rounded-[1.2rem_0.9rem_1.35rem_1rem] border border-ink/10 bg-cream/70 p-5 sm:p-6",
-                    index % 2 === 0 ? "-rotate-[0.4deg]" : "rotate-[0.5deg]",
-                  )}
-                >
-                  <span className="font-display text-sm font-semibold tracking-widest text-terracotta">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="font-display text-xl font-semibold text-ink">
-                    {chapter.label}
+          <div className="mt-10 space-y-10 sm:mt-12 sm:space-y-12">
+            {MENU_CATEGORIES.map((category) => (
+              <Reveal key={category.id}>
+                <div>
+                  <h3 className="text-xs font-medium tracking-[0.16em] text-leaf uppercase">
+                    {category.label}
                   </h3>
-                  <p className="text-sm leading-relaxed text-ink-soft">{chapter.note}</p>
+                  <div className="mt-2 h-px w-full bg-ink/10" aria-hidden />
+
+                  <Stagger className="mt-5 space-y-4 sm:mt-6 sm:space-y-5" as="ul">
+                    {category.items.map((item) => {
+                      const priced = item.price != null;
+                      return (
+                        <StaggerItem key={item.id} as="li">
+                          <div className="flex items-center gap-3 sm:gap-4">
+                            <div className="w-16 shrink-0 sm:w-20">
+                              <ImagePlaceholder
+                                label={item.name}
+                                aspect="square"
+                                alt={
+                                  item.imageSrc
+                                    ? `${item.name} from ${SITE.name}`
+                                    : undefined
+                                }
+                                src={item.imageSrc}
+                                sizes="80px"
+                                className="bg-cream/80"
+                              />
+                            </div>
+
+                            <div className="min-w-0 flex-1">
+                              <p className="font-display text-base font-semibold tracking-tight text-ink sm:text-lg">
+                                {item.name}
+                              </p>
+                              {item.unit ? (
+                                <p className="mt-0.5 text-xs text-ink-soft sm:text-sm">
+                                  {item.unit}
+                                </p>
+                              ) : null}
+                            </div>
+
+                            <p
+                              className={cn(
+                                "shrink-0 text-right",
+                                priced
+                                  ? "font-display text-base font-semibold text-ink sm:text-lg"
+                                  : "max-w-30 text-xs leading-snug text-ink-soft sm:max-w-36 sm:text-sm",
+                              )}
+                            >
+                              {formatMenuPrice(item)}
+                            </p>
+                          </div>
+                        </StaggerItem>
+                      );
+                    })}
+                  </Stagger>
                 </div>
-              </StaggerItem>
+              </Reveal>
             ))}
-          </Stagger>
+          </div>
+
+          <Reveal delay={0.06}>
+            <div className="mt-10 space-y-2 border-t border-ink/10 pt-6 sm:mt-12">
+              <p className="text-sm leading-relaxed text-ink-soft">{MENU_PRICE_NOTE}</p>
+              <p className="text-sm leading-relaxed text-ink-soft">
+                {MENU_CUSTOMISE_NOTE}
+              </p>
+            </div>
+          </Reveal>
         </Container>
       </section>
 
@@ -195,19 +246,19 @@ export function FoodPageClient() {
             {(
               [
                 {
-                  src: MEDIA.food.packaged1,
-                  alt: "Homemade pickles and powders packed from AMMA'S MANE TINDI",
+                  src: MEDIA.packaging.chatni,
+                  alt: "Homemade pickles and chutneys packed from AMMA'S MANE TINDI",
                   label: "Powders & pickles",
                   rotate: "-rotate-1",
                 },
                 {
-                  src: MEDIA.food.packaged2,
-                  alt: "Branded snack pouches from AMMA'S MANE TINDI",
+                  src: MEDIA.packaging.nipattu,
+                  alt: "Branded nippattu pouches from AMMA'S MANE TINDI",
                   label: "Evening snacks",
                   rotate: "rotate-[1.25deg]",
                 },
                 {
-                  src: MEDIA.food.packaged3,
+                  src: MEDIA.packaging.whole,
                   alt: "Ready parcels with AMMA'S MANE TINDI stickers",
                   label: "Ready to share",
                   rotate: "-rotate-[0.75deg]",

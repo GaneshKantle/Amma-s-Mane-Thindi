@@ -37,7 +37,7 @@ export const FOOD_ITEMS: readonly FoodItem[] = [
     category: "Snacks",
     description:
       "Crispy ring-shaped snack, deep-fried and lightly spiced — perfect with evening chai.",
-    imageSrc: P[1],
+    imageSrc: P[0],
     imageAlt: "Packaged homemade snacks from AMMA'S MANE TINDI",
     badge: "Evening favourite",
     featured: true,
@@ -75,7 +75,7 @@ export const FOOD_ITEMS: readonly FoodItem[] = [
     category: "Meals",
     description:
       "Warm rice and lentil bath with vegetables and homemade spice powder — comfort in a bowl.",
-    imageSrc: P[0],
+    imageSrc: P[3],
     imageAlt: "AMMA'S MANE TINDI packaged homemade foods",
     badge: "Comfort meal",
     featured: true,
@@ -89,7 +89,7 @@ export const FOOD_ITEMS: readonly FoodItem[] = [
     category: "Meals",
     description:
       "Tangy tempered rice with mustard, curry leaves and peanuts — ready for tiffin or travel.",
-    imageSrc: P[2],
+    imageSrc: P[4],
     imageAlt: "Homemade packaged foods ready for tiffin",
     rotation: "left",
     span: "standard",
@@ -114,7 +114,7 @@ export const FOOD_ITEMS: readonly FoodItem[] = [
     category: "Traditional",
     description:
       "Soft sweet flatbread stuffed with coconut or dal — made for festivals and special days.",
-    imageSrc: P[0],
+    imageSrc: P[5],
     imageAlt: "Festival sweets and snacks from AMMA'S MANE TINDI",
     badge: "Festival",
     featured: true,
@@ -128,7 +128,7 @@ export const FOOD_ITEMS: readonly FoodItem[] = [
     category: "Traditional",
     description:
       "Steamed rice dumplings for pooja mornings — soft, simple and made with care.",
-    imageSrc: P[1],
+    imageSrc: P[6],
     imageAlt: "Traditional homemade packaged foods",
     rotation: "right",
     span: "compact",
@@ -140,7 +140,7 @@ export const FOOD_ITEMS: readonly FoodItem[] = [
     category: "Traditional",
     description:
       "Sweet kheer prepared the traditional way — ask which variety is available this week.",
-    imageSrc: P[2],
+    imageSrc: P[1],
     imageAlt: "Homemade traditional sweets packaging",
     rotation: "none",
     span: "standard",
@@ -180,7 +180,7 @@ export const FOOD_ITEMS: readonly FoodItem[] = [
     category: "Specials",
     description:
       "Small jars of seasonal pickle — mango, lemon or mixed, packed with our kitchen label.",
-    imageSrc: P[0],
+    imageSrc: P[7],
     imageAlt: "Homemade pickle tub with AMMA'S MANE TINDI sticker",
     rotation: "none",
     span: "standard",

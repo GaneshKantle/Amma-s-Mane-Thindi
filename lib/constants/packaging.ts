@@ -11,14 +11,14 @@ export const PACKAGING_STEPS: readonly PackagingStep[] = [
     id: "food",
     title: "Food",
     description: "Fresh from the kitchen",
-    imageSrc: "/images/food/food2.jpeg",
+    imageSrc: "/images/packaging/food2.jpeg",
     imageAlt: "Homemade snacks and powders from AMMA'S MANE TINDI",
   },
   {
     id: "packaging",
     title: "Packaging",
     description: "Wrapped with care",
-    imageSrc: "/images/food/food1.jpeg",
+    imageSrc: "/images/packaging/package1.jpeg",
     imageAlt: "Carefully packed AMMA'S MANE TINDI products",
   },
   {
@@ -32,7 +32,7 @@ export const PACKAGING_STEPS: readonly PackagingStep[] = [
     id: "ready",
     title: "Ready to go",
     description: "Handed over with a smile",
-    imageSrc: "/images/food/food3.jpeg",
+    imageSrc: "/images/packaging/wholepackage.jpeg",
     imageAlt: "Packed order ready to go from AMMA'S MANE TINDI",
   },
 ] as const;

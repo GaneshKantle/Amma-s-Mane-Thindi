@@ -6,11 +6,15 @@ import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Divider } from "@/components/ui/Divider";
 import { DrawPath } from "@/components/ui/DrawPath";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import {
   BULK_OCCASIONS,
   BULK_PROCESS_STEPS,
 } from "@/lib/constants/bulk";
+import { MEDIA } from "@/lib/constants/media";
+import { SITE } from "@/lib/constants/site";
 import { whatsappBulkHref } from "@/lib/utils/whatsapp";
 
 export function BulkOrdersPage() {
@@ -19,51 +23,73 @@ export function BulkOrdersPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden pb-12 pt-8 sm:pb-16 sm:pt-12 lg:pt-14">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-20 -right-16 h-72 w-72 rounded-full bg-mustard/20 blur-2xl"
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute bottom-0 -left-24 h-64 w-64 rounded-full bg-leaf/10 blur-2xl"
-        />
-
+      <section
+        aria-labelledby="bulk-heading"
+        className="section-y ink-wash bg-paper-deep/25"
+      >
         <Container>
-          <Reveal>
-            <p className="text-xs font-medium tracking-[0.18em] text-terracotta uppercase">
-              Bulk food orders
-            </p>
-            <h1 className="font-display mt-2 max-w-[14ch] text-[clamp(2rem,6vw,3.5rem)] leading-[1.12] tracking-tight text-ink">
-              Planning a function?
-            </h1>
-            <Divider className="mx-0 my-5 max-w-[9rem] py-0" tone="mustard" />
-            <p className="max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
-              Tell us what you&apos;re planning. We&apos;ll discuss the food, quantity and
-              packing with you. Order in advance — takeout only; collect from our kitchen
-              in Kothanur.
-            </p>
-            <div className="mt-8 flex flex-col gap-3 sm:max-w-md sm:flex-row">
-              <Button
-                href={whatsappBulkHref()}
-                external
-                variant="primary"
-                size="lg"
-                className="w-full sm:w-auto sm:flex-1"
-              >
-                WhatsApp Us
-              </Button>
-              <Button
-                type="button"
-                variant="secondary"
-                size="lg"
-                className="w-full sm:w-auto sm:flex-1"
-                onClick={() => setPopupOpen(true)}
-              >
-                Plan with us
-              </Button>
+          <div className="grid items-start gap-8 sm:gap-10 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-12 xl:gap-16 2xl:gap-20">
+            <Reveal>
+              <div className="mx-auto w-full max-w-[min(100%,22rem)] rotate-[-0.75deg] sm:max-w-md lg:mx-0 lg:max-w-lg xl:max-w-xl">
+                <ImagePlaceholder
+                  label="Bulk packed order"
+                  aspect="square"
+                  alt={`Packed bulk order from ${SITE.name}`}
+                  src={MEDIA.packaging.whole}
+                  sizes="(max-width: 1024px) 90vw, 42vw"
+                />
+                <p className="mt-4 text-center font-display text-xs tracking-[0.04em] text-ink-soft/80 italic sm:text-sm">
+                  Packed for your function
+                </p>
+              </div>
+            </Reveal>
+
+            <div className="min-w-0">
+              <Reveal delay={0.06}>
+                <SectionEyebrow withSprig tone="mustard">
+                  Bulk &amp; functions
+                </SectionEyebrow>
+                <h1
+                  id="bulk-heading"
+                  className="font-display text-title mt-3 leading-[1.15] tracking-tight text-ink"
+                >
+                  Planning a function?
+                </h1>
+                <Divider className="mx-0 my-4 max-w-[9rem] py-0" tone="mustard" />
+                <p className="text-lead prose-measure text-ink-soft">
+                  Tell us the occasion, quantity and date — we prepare and pack with care
+                  for gatherings large and small. WhatsApp us (no online checkout). Takeout
+                  only: order in advance and collect from our kitchen in Kothanur.
+                </p>
+                <p className="mt-5 text-sm tracking-[0.04em] text-ink-soft/80">
+                  Ask · Prepare · Ready
+                </p>
+              </Reveal>
+
+              <Reveal delay={0.12}>
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                  <Button
+                    href={whatsappBulkHref()}
+                    external
+                    variant="primary"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                  >
+                    WhatsApp Us
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="secondary"
+                    size="lg"
+                    className="w-full sm:w-auto"
+                    onClick={() => setPopupOpen(true)}
+                  >
+                    Plan with us
+                  </Button>
+                </div>
+              </Reveal>
             </div>
-          </Reveal>
+          </div>
         </Container>
       </section>
 

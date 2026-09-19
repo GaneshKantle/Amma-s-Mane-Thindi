@@ -2,16 +2,14 @@ import { Container } from "@/components/ui/Container";
 import { Divider } from "@/components/ui/Divider";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
-import { Section } from "@/components/ui/Section";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SITE } from "@/lib/constants/site";
 
-export function About() {
+export function AboutPage() {
   return (
-    <Section
-      id="about"
-      ariaLabelledBy="about-heading"
-      className="ink-wash bg-paper-deep/25"
+    <section
+      aria-labelledby="about-heading"
+      className="ink-wash bg-paper-deep/25 pb-16 pt-8 sm:pb-20 sm:pt-12 lg:pt-14"
     >
       <Container>
         <div className="grid items-center gap-8 sm:gap-10 lg:grid-cols-2 lg:gap-14 xl:gap-16">
@@ -30,12 +28,12 @@ export function About() {
             <SectionEyebrow withSprig tone="leaf">
               Our kitchen
             </SectionEyebrow>
-            <h2
+            <h1
               id="about-heading"
               className="font-display text-title mt-3 leading-[1.15] tracking-tight text-ink"
             >
               Made at home. Shared with everyone.
-            </h2>
+            </h1>
             <Divider className="mx-0 my-5 max-w-[9rem] py-0" tone="leaf" />
             <div className="text-lead prose-measure space-y-4 text-ink-soft">
               <p>
@@ -63,6 +61,6 @@ export function About() {
           </Reveal>
         </div>
       </Container>
-    </Section>
+    </section>
   );
 }
