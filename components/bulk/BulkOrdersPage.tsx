@@ -11,7 +11,6 @@ import {
   BULK_OCCASIONS,
   BULK_PROCESS_STEPS,
 } from "@/lib/constants/bulk";
-import { SITE } from "@/lib/constants/site";
 import { whatsappBulkHref } from "@/lib/utils/whatsapp";
 
 export function BulkOrdersPage() {
@@ -46,22 +45,22 @@ export function BulkOrdersPage() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:max-w-md sm:flex-row">
               <Button
-                type="button"
-                variant="primary"
-                size="lg"
-                className="w-full sm:w-auto sm:flex-1"
-                onClick={() => setPopupOpen(true)}
-              >
-                Call Us
-              </Button>
-              <Button
                 href={whatsappBulkHref()}
                 external
-                variant="secondary"
+                variant="primary"
                 size="lg"
                 className="w-full sm:w-auto sm:flex-1"
               >
                 WhatsApp Us
+              </Button>
+              <Button
+                type="button"
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto sm:flex-1"
+                onClick={() => setPopupOpen(true)}
+              >
+                Plan with us
               </Button>
             </div>
           </Reveal>
@@ -198,27 +197,24 @@ export function BulkOrdersPage() {
               </h2>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
                 <Button
-                  type="button"
-                  variant="primary"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                  onClick={() => setPopupOpen(true)}
-                >
-                  Call Us
-                </Button>
-                <Button
                   href={whatsappBulkHref()}
                   external
-                  variant="secondary"
+                  variant="primary"
                   size="lg"
                   className="w-full sm:w-auto"
                 >
                   WhatsApp Us
                 </Button>
+                <Button
+                  type="button"
+                  variant="secondary"
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  onClick={() => setPopupOpen(true)}
+                >
+                  Plan with us
+                </Button>
               </div>
-              <p className="mt-4 text-sm text-ink-soft">
-                {SITE.phoneDisplay} · {SITE.hours}
-              </p>
             </div>
           </Reveal>
         </Container>

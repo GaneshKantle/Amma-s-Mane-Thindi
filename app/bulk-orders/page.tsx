@@ -8,7 +8,7 @@ import { SITE } from "@/lib/constants/site";
 
 export const metadata: Metadata = {
   title: "Bulk Orders",
-  description: `Plan bulk homemade food for functions, pooja, birthdays and office events with ${SITE.name}. Call or WhatsApp — no online checkout.`,
+  description: `Plan bulk homemade food for functions, pooja, birthdays and office events with ${SITE.name}. WhatsApp us — no online checkout.`,
   openGraph: {
     title: `Bulk Orders | ${SITE.name}`,
     description: `Homemade bulk food orders for gatherings and celebrations. Contact ${SITE.name} directly to discuss your menu.`,

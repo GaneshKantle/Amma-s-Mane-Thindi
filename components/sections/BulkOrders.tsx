@@ -15,7 +15,7 @@ import { whatsappBulkHref } from "@/lib/utils/whatsapp";
 import { storyDuration, storyEase, viewportOnce } from "@/lib/motion/storybook";
 
 const BULK_STORY = [
-  { mark: "phone" as const, label: "Call" },
+  { mark: "phone" as const, label: "Ask" },
   { mark: "pot" as const, label: "Prepare" },
   { mark: "parcel" as const, label: "Pack" },
   { mark: "plate" as const, label: "Ready" },
@@ -55,7 +55,7 @@ export function BulkOrders() {
             </h2>
             <p className="mt-4 max-w-lg text-sm leading-relaxed text-ink-soft sm:text-base">
               We take bulk orders for gatherings large and small. Tell us the occasion,
-              quantity and date — we&apos;ll prepare and pack with care. Call or WhatsApp
+              quantity and date — we&apos;ll prepare and pack with care. WhatsApp us
               (no online checkout). Takeout only: order in advance and collect from our
               kitchen in Kothanur.
             </p>
@@ -111,22 +111,22 @@ export function BulkOrders() {
 
             <div className="mt-8 flex flex-col gap-3 sm:max-w-md sm:flex-row sm:flex-wrap">
               <Button
-                type="button"
-                variant="primary"
-                size="lg"
-                className="w-full sm:w-auto"
-                onClick={() => setPopupOpen(true)}
-              >
-                Call Us
-              </Button>
-              <Button
                 href={whatsappBulkHref()}
                 external
-                variant="secondary"
+                variant="primary"
                 size="lg"
                 className="w-full sm:w-auto"
               >
                 WhatsApp Us
+              </Button>
+              <Button
+                type="button"
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto"
+                onClick={() => setPopupOpen(true)}
+              >
+                Plan with us
               </Button>
               <Link
                 href="/bulk-orders"

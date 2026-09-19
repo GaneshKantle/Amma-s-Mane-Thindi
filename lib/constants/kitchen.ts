@@ -26,7 +26,7 @@ export const BEYOND_MENU: readonly KitchenHighlight[] = [
     title: "What's cooking today",
     titleKn: "ಇಂದು ಏನು ಇದೆ?",
     description:
-      "Some days there is a special from Amma's kitchen that never makes the printed menu. Call or WhatsApp and ask.",
+      "Some days there is a special from Amma's kitchen that never makes the printed menu. WhatsApp us and ask.",
     accent: "leaf",
   },
   {

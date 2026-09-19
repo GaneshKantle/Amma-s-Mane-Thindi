@@ -8,7 +8,7 @@ import { SITE } from "@/lib/constants/site";
 
 export const metadata: Metadata = {
   title: "Tailoring & Blouse Work",
-  description: `Blouse work, kuchu, peeko, fall and custom designs from ${SITE.name}. Call or WhatsApp to discuss your fabric and fit — no online shop.`,
+  description: `Blouse work, kuchu, peeko, fall and custom designs from ${SITE.name}. WhatsApp us to discuss your fabric and fit — no online shop.`,
   openGraph: {
     title: `Tailoring & Blouse Work | ${SITE.name}`,
     description: `Careful blouse stitching and saree finishing. Contact ${SITE.name} directly for custom work.`,

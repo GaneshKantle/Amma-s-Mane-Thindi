@@ -5,7 +5,6 @@ import { Container } from "@/components/ui/Container";
 import { Divider } from "@/components/ui/Divider";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
-import { SITE } from "@/lib/constants/site";
 import { whatsappTailoringHref } from "@/lib/utils/whatsapp";
 import {
   TAILORING_GALLERY,
@@ -159,22 +158,14 @@ export function TailoringPage() {
                 Have a design in mind?
               </h2>
               <p className="mt-3 text-sm leading-relaxed text-ink-soft sm:text-base">
-                Call or WhatsApp us with your fabric, measurements and ideas. We&apos;ll
-                guide you through blouse work, finishing and custom stitching.
+                WhatsApp us with your fabric, measurements and ideas. We&apos;ll guide
+                you through blouse work, finishing and custom stitching.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <Button
-                  href={SITE.phoneHref}
-                  variant="primary"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                >
-                  Call Us
-                </Button>
+              <div className="mt-8 flex justify-center">
                 <Button
                   href={whatsappTailoringHref()}
                   external
-                  variant="secondary"
+                  variant="primary"
                   size="lg"
                   className="w-full sm:w-auto"
                 >

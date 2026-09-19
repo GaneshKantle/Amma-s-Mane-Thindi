@@ -8,7 +8,6 @@ import {
   isFoodAvailable,
   type FoodItem,
 } from "@/lib/constants/food";
-import { SITE } from "@/lib/constants/site";
 
 type FoodDetailModalProps = {
   item: FoodItem | null;
@@ -56,21 +55,13 @@ export function FoodDetailModal({ item, onClose }: FoodDetailModalProps) {
           <p className="font-display mt-6 text-base font-semibold text-ink">
             Interested in this?
           </p>
-          <div className="mt-3 flex flex-col gap-3 sm:flex-row">
-            <Button
-              href={SITE.phoneHref}
-              variant="primary"
-              size="lg"
-              className="w-full sm:flex-1"
-            >
-              Call Us
-            </Button>
+          <div className="mt-3">
             <Button
               href={getFoodWhatsAppHref(item)}
               external
-              variant="secondary"
+              variant="primary"
               size="lg"
-              className="w-full sm:flex-1"
+              className="w-full"
             >
               WhatsApp Us
             </Button>

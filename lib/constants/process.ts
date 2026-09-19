@@ -8,7 +8,7 @@ export type ProcessStep = {
 export const PROCESS_STEPS: readonly ProcessStep[] = [
   {
     number: "01",
-    title: "You Call Us",
+    title: "You Reach Us",
     description: "Tell us what you need — a small order or something for a gathering.",
     mark: "phone",
   },

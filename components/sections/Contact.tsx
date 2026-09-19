@@ -1,4 +1,4 @@
-import { MapPin, MessageCircle, Phone, Star } from "lucide-react";
+import { MapPin, MessageCircle, Star } from "lucide-react";
 import { InkSprig } from "@/components/illustrations/InkOrnaments";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -28,8 +28,8 @@ export function Contact() {
               Talk to us
             </h2>
             <p className="text-lead prose-measure mx-auto mt-3 text-ink-soft">
-              Call or WhatsApp to place an order. We&apos;ll help with everyday food,
-              bulk orders, or tailoring — then you collect from our kitchen.
+              WhatsApp us to place an order. We&apos;ll help with everyday food, bulk
+              orders, or tailoring — then you collect from our kitchen.
             </p>
             <p className="mt-5 inline-flex flex-wrap items-center justify-center gap-x-3 gap-y-1 border border-ink/10 bg-cream/60 px-4 py-2 text-sm text-ink">
               <span className="inline-flex items-center gap-1.5 font-medium tracking-wide text-ink">
@@ -54,18 +54,9 @@ export function Contact() {
         <Reveal delay={0.08}>
           <div className="mx-auto mt-10 flex max-w-xl flex-col gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:justify-center">
             <Button
-              href={SITE.phoneHref}
-              variant="primary"
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              <Phone className="h-4 w-4" aria-hidden />
-              Call Us
-            </Button>
-            <Button
               href={whatsappDefaultHref()}
               external
-              variant="secondary"
+              variant="primary"
               size="lg"
               className="w-full sm:w-auto"
             >
@@ -75,61 +66,36 @@ export function Contact() {
             <Button
               href={SITE.mapsHref}
               external
-              variant="ghost"
+              variant="secondary"
               size="lg"
-              className="w-full border border-ink/15 bg-cream/50 sm:w-auto"
+              className="w-full sm:w-auto"
             >
               <MapPin className="h-4 w-4" aria-hidden />
               Find Us
             </Button>
           </div>
+          <p className="mx-auto mt-5 max-w-md text-center text-sm text-ink-soft">
+            Full contact details and kitchen hours are in the footer.
+          </p>
         </Reveal>
 
         <Reveal delay={0.12}>
-          <dl className="story-card mx-auto mt-12 grid max-w-3xl gap-5 p-4 min-[380px]:p-6 sm:mt-14 sm:grid-cols-2 sm:gap-8 sm:p-8">
-            <div>
-              <dt className="text-xs font-medium tracking-[0.14em] text-leaf uppercase">
-                Phone / WhatsApp
-              </dt>
-              <dd className="mt-2">
-                <a
-                  href={SITE.phoneHref}
-                  className="link-draw text-base font-medium text-ink"
-                >
-                  {SITE.phoneDisplay}
-                </a>
-              </dd>
-            </div>
-            <div>
-              <dt className="text-xs font-medium tracking-[0.14em] text-leaf uppercase">
-                Hours
-              </dt>
-              <dd className="mt-2 text-base text-ink-soft">{SITE.hours}</dd>
-            </div>
-            <div className="sm:col-span-2">
-              <dt className="text-xs font-medium tracking-[0.14em] text-leaf uppercase">
-                Address
-              </dt>
-              <dd className="mt-2 text-base leading-relaxed text-ink-soft">
-                <a
-                  href={SITE.mapsHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-draw text-ink-soft hover:text-ink"
-                >
-                  {SITE.address}
-                </a>
-              </dd>
-            </div>
-            <div className="sm:col-span-2">
-              <dt className="text-xs font-medium tracking-[0.14em] text-leaf uppercase">
-                How to order
-              </dt>
-              <dd className="mt-2 text-base leading-relaxed text-ink-soft">
-                {SITE.serviceNote}
-              </dd>
-            </div>
-          </dl>
+          <div className="story-card mx-auto mt-10 max-w-2xl p-5 text-center sm:mt-12 sm:p-7">
+            <p className="text-xs font-medium tracking-[0.16em] text-leaf uppercase">
+              How to order
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft sm:text-base">
+              {SITE.serviceNote}
+            </p>
+            <a
+              href={SITE.mapsHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="link-draw mt-4 inline-block text-sm font-medium text-ink"
+            >
+              {SITE.area} — open map
+            </a>
+          </div>
         </Reveal>
       </Container>
     </Section>

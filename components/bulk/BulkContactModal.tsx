@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
-import { SITE } from "@/lib/constants/site";
 import { whatsappBulkHref } from "@/lib/utils/whatsapp";
 
 type BulkContactModalProps = {
@@ -15,25 +14,17 @@ export function BulkContactModal({ open, onClose }: BulkContactModalProps) {
     <Modal open={open} onClose={onClose} title="Planning a function?">
       <p className="text-sm leading-relaxed text-ink-soft sm:text-base">
         Tell us what you&apos;re planning and we&apos;ll discuss the details with you.
-        No online form — just a call or a WhatsApp message.
+        WhatsApp us anytime — phone and hours are listed in the footer.
       </p>
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <Button
-          href={SITE.phoneHref}
-          variant="primary"
-          size="lg"
-          className="w-full sm:flex-1"
-        >
-          Call
-        </Button>
+      <div className="mt-6">
         <Button
           href={whatsappBulkHref()}
           external
-          variant="secondary"
+          variant="primary"
           size="lg"
-          className="w-full sm:flex-1"
+          className="w-full"
         >
-          WhatsApp
+          WhatsApp Us
         </Button>
       </div>
     </Modal>

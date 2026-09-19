@@ -44,21 +44,13 @@ export function FoodPageClient() {
                 see exactly what you want, ask — custom cooking is how Amma&apos;s kitchen
                 works.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:max-w-md sm:flex-row">
-                <Button
-                  href={SITE.phoneHref}
-                  variant="primary"
-                  size="lg"
-                  className="w-full sm:w-auto sm:flex-1"
-                >
-                  Call Us
-                </Button>
+              <div className="mt-8">
                 <Button
                   href={whatsappFoodHref()}
                   external
-                  variant="secondary"
+                  variant="primary"
                   size="lg"
-                  className="w-full sm:w-auto sm:flex-1"
+                  className="w-full sm:w-auto"
                 >
                   WhatsApp the kitchen
                 </Button>
@@ -256,22 +248,14 @@ export function FoodPageClient() {
                 Tell us what you&apos;re craving
               </h2>
               <p className="text-lead mx-auto mt-3 max-w-lg text-ink-soft">
-                Menu item or something custom — call or WhatsApp, order in advance, then
+                Menu item or something custom — WhatsApp us, order in advance, then
                 collect from our kitchen in Kothanur. Takeout only; no delivery.
               </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <Button
-                  href={SITE.phoneHref}
-                  variant="primary"
-                  size="lg"
-                  className="w-full sm:w-auto"
-                >
-                  Call Us
-                </Button>
+              <div className="mt-8 flex justify-center">
                 <Button
                   href={whatsappFoodHref()}
                   external
-                  variant="secondary"
+                  variant="primary"
                   size="lg"
                   className="w-full sm:w-auto"
                 >
