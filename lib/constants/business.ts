@@ -20,10 +20,9 @@ export const BUSINESS = {
     "Takeout only — we do not offer delivery. Please place your order in advance and collect it from our kitchen in Kothanur.",
   cuisine: "Vegetarian",
   rating: 5.0,
-  reviewCount: 7,
-  googleReviewsLabel: "7 Google reviews",
+  googleReviewsLabel: "Google reviews",
   siteUrl:
-    process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ammasmanetindi.example",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://ammasmanetindi.vercel.app",
 } as const;
 
 export type Business = typeof BUSINESS;

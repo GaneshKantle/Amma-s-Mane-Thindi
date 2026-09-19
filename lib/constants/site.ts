@@ -23,7 +23,6 @@ export const SITE = {
   serviceNote: BUSINESS.serviceNote,
   cuisine: BUSINESS.cuisine,
   rating: BUSINESS.rating,
-  reviewCount: BUSINESS.reviewCount,
   googleReviewsLabel: BUSINESS.googleReviewsLabel,
 } as const;
 
