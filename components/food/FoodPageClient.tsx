@@ -98,57 +98,54 @@ export function FoodPageClient() {
             </p>
           </Reveal>
 
-          <div className="mt-10 space-y-10 sm:mt-12 sm:space-y-12">
+          <div className="mt-10 space-y-12 sm:mt-12 sm:space-y-14">
             {MENU_CATEGORIES.map((category) => (
               <Reveal key={category.id}>
                 <div>
                   <h3 className="text-xs font-medium tracking-[0.16em] text-leaf uppercase">
                     {category.label}
                   </h3>
-                  <div className="mt-2 h-px w-full bg-ink/10" aria-hidden />
+                  <div className="mt-2 h-px w-full max-w-xs bg-ink/10" aria-hidden />
 
-                  <Stagger className="mt-5 space-y-4 sm:mt-6 sm:space-y-5" as="ul">
+                  <Stagger
+                    className="mt-6 grid grid-cols-2 gap-x-5 gap-y-8 sm:mt-8 sm:grid-cols-3 sm:gap-x-8 sm:gap-y-10 lg:grid-cols-4 lg:gap-x-10 lg:gap-y-12"
+                    as="ul"
+                  >
                     {category.items.map((item) => {
                       const priced = item.price != null;
                       return (
                         <StaggerItem key={item.id} as="li">
-                          <div className="flex items-center gap-3 sm:gap-4">
-                            <div className="w-16 shrink-0 sm:w-20">
-                              <ImagePlaceholder
-                                label={item.name}
-                                aspect="square"
-                                alt={
-                                  item.imageSrc
-                                    ? `${item.name} from ${SITE.name}`
-                                    : undefined
-                                }
-                                src={item.imageSrc}
-                                sizes="80px"
-                                className="bg-cream/80"
-                              />
-                            </div>
-
-                            <div className="min-w-0 flex-1">
-                              <p className="font-display text-base font-semibold tracking-tight text-ink sm:text-lg">
+                          <div className="flex flex-col">
+                            <ImagePlaceholder
+                              label={item.name}
+                              aspect="square"
+                              alt={
+                                item.imageSrc
+                                  ? `${item.name} from ${SITE.name}`
+                                  : undefined
+                              }
+                              src={item.imageSrc}
+                              sizes="(max-width: 640px) 45vw, (max-width: 1024px) 28vw, 18vw"
+                              className="bg-cream/80"
+                            />
+                            <div className="mt-3 flex flex-col gap-0.5">
+                              <p className="font-display text-sm font-semibold tracking-tight text-ink sm:text-base">
                                 {item.name}
                               </p>
                               {item.unit ? (
-                                <p className="mt-0.5 text-xs text-ink-soft sm:text-sm">
-                                  {item.unit}
-                                </p>
+                                <p className="text-xs text-ink-soft">{item.unit}</p>
                               ) : null}
+                              <p
+                                className={cn(
+                                  "mt-1",
+                                  priced
+                                    ? "font-display text-sm font-semibold text-ink sm:text-base"
+                                    : "text-xs leading-snug text-ink-soft",
+                                )}
+                              >
+                                {formatMenuPrice(item)}
+                              </p>
                             </div>
-
-                            <p
-                              className={cn(
-                                "shrink-0 text-right",
-                                priced
-                                  ? "font-display text-base font-semibold text-ink sm:text-lg"
-                                  : "max-w-30 text-xs leading-snug text-ink-soft sm:max-w-36 sm:text-sm",
-                              )}
-                            >
-                              {formatMenuPrice(item)}
-                            </p>
                           </div>
                         </StaggerItem>
                       );

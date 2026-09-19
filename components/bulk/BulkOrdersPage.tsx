@@ -5,7 +5,6 @@ import { BulkContactModal } from "@/components/bulk/BulkContactModal";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Divider } from "@/components/ui/Divider";
-import { DrawPath } from "@/components/ui/DrawPath";
 import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
@@ -140,62 +139,35 @@ export function BulkOrdersPage() {
 
       <section
         aria-labelledby="bulk-process-heading"
-        className="py-14 sm:py-16 lg:py-20"
+        className="section-y"
       >
         <Container>
           <Reveal>
             <h2
               id="bulk-process-heading"
-              className="font-display text-[clamp(1.65rem,4vw,2.5rem)] tracking-tight text-ink"
+              className="font-display text-title tracking-tight text-ink"
             >
               How bulk orders work
             </h2>
-            <p className="mt-3 max-w-lg text-sm leading-relaxed text-ink-soft sm:text-base">
+            <p className="text-lead prose-measure mt-3 text-ink-soft">
               A simple conversation — no online form, no cart.
             </p>
           </Reveal>
 
-          <ol className="relative mt-12 max-w-2xl space-y-0 sm:mt-14">
-            <svg
-              aria-hidden
-              className="pointer-events-none absolute top-4 bottom-4 left-[1.15rem] hidden w-4 sm:block"
-              viewBox="0 0 16 600"
-              fill="none"
-              preserveAspectRatio="none"
-            >
-              <DrawPath
-                d="M8 0 C4 80, 12 160, 7 240 C3 320, 11 400, 8 480 C6 540, 9 580, 8 600"
-                stroke="#B85C38"
-                strokeWidth={1.5}
-                opacity={0.35}
-                dashArray="3 7"
-                delay={0.1}
-                duration={1.6}
-              />
-            </svg>
-
+          <ol className="mt-12 grid grid-cols-1 gap-x-10 gap-y-12 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-14">
             {BULK_PROCESS_STEPS.map((step, index) => (
-              <Reveal key={step.number} delay={index * 0.08} as="li">
-                <div className="relative flex gap-4 pb-10 last:pb-0 sm:gap-6">
-                  <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-ink/15 bg-paper font-display text-sm font-semibold text-terracotta shadow-sm sm:h-11 sm:w-11">
+              <Reveal key={step.number} delay={index * 0.06} as="li">
+                <div className="flex h-full flex-col">
+                  <span className="font-display text-3xl font-semibold tracking-tight text-terracotta/55 sm:text-4xl">
                     {step.number}
-                  </div>
-                  <div className="min-w-0 pt-1.5">
-                    <h3 className="font-display text-lg font-semibold text-ink sm:text-xl">
-                      {step.title}
-                    </h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-ink-soft sm:text-base">
-                      {step.description}
-                    </p>
-                    {index < BULK_PROCESS_STEPS.length - 1 ? (
-                      <span
-                        aria-hidden
-                        className="mt-3 inline-block font-display text-terracotta/40 sm:hidden"
-                      >
-                        ↓
-                      </span>
-                    ) : null}
-                  </div>
+                  </span>
+                  <div className="mt-3 h-px w-10 bg-ink/15" aria-hidden />
+                  <h3 className="font-display mt-4 text-xl font-semibold tracking-tight text-ink sm:text-2xl">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 max-w-sm text-sm leading-relaxed text-ink-soft sm:text-base">
+                    {step.description}
+                  </p>
                 </div>
               </Reveal>
             ))}
